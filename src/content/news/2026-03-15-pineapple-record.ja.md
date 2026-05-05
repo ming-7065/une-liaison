@@ -1,10 +1,10 @@
 ---
-title: "台湾パイナップルの輸出が過去最高を更新！"
+locale: zh
+title: 台湾パイナップルの輸出が過去最高を更新！
 date: 2026-03-15
-excerpt: "台湾パイナップルの輸出量が今年も記録を更新。世界中の消費者の台湾高品質果物へのご支持に感謝します。"
+excerpt: 台湾パイナップルの輸出量が今年も記録を更新。世界中の消費者の台湾高品質果物へのご支持に感謝します。
 emoji: 🍍
-image: /images/news/pineapple-record.jpg
-locale: ja
+image: /images/關廟鳳梨銷售004.jpg
 ---
 
 ## 記録突破の的背景功臣
