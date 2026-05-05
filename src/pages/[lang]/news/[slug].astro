@@ -1,0 +1,61 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { supportedLangs, getTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return supportedLangs.flatMap(lang => {
+    const allNews = [
+      { slug: '2026-03-15-pineapple-record' },
+      { slug: '2026-03-01-mango-season' },
+      { slug: '2026-02-20-team-hiring' },
+    ];
+    return allNews.map(item => ({ params: { lang, slug: item.slug }, props: { lang, slug: item.slug } }));
+  });
+}
+
+const lang = Astro.props.lang as Lang;
+const slug = Astro.params.slug as string;
+const t = getTranslations(lang);
+const lp = `/${lang}`;
+
+const allNews = await getCollection('news');
+const entry = allNews.find(e => e.id === `${slug}.${lang}` && e.data.locale === lang);
+
+const { Content } = entry ? await render(entry) : { Content: null };
+---
+<Layout title={`Une Liaison | ${entry?.data.title ?? t.news.title}`} lang={lang}>
+  {entry ? (
+    <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4">
+        <a href={`${lp}/news`} class="inline-flex items-center text-[var(--color-primary)] hover:underline mb-8">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          {t.news.title}
+        </a>
+        {entry.data.emoji && (
+          <div class="text-6xl mb-6 text-center">{entry.data.emoji}</div>
+        )}
+        <h1 class="text-4xl font-bold text-gray-800 mb-4 text-center">{entry.data.title}</h1>
+        <p class="text-gray-500 text-sm mb-8 text-center">
+          {entry.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : lang === 'ja' ? 'ja-JP' : 'zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </p>
+        {entry.data.image && (
+          <img src={entry.data.image} alt={entry.data.title} class="w-full h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-lg" />
+        )}
+        <div class="prose prose-lg mx-auto text-gray-800">
+          <Content />
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h1 class="text-4xl font-bold text-gray-800 mb-8">{t.news.title}</h1>
+        <p class="text-gray-500">{t.news.coming_soon}</p>
+        <a href={`${lp}/news`} class="text-[var(--color-primary)] hover:underline mt-8 inline-block">{t.news.title}</a>
+      </div>
+    </section>
+  )}
+</Layout>

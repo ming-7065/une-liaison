@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { supportedLangs, getTranslations, type Lang } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = getTranslations(lang);
+const lp = `/${lang}`;
+
+const allNews = await getCollection('news');
+const news = allNews
+  .filter(e => e.data.locale === lang)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+function getSlug(id: string): string {
+  return id.replace(/\.(zh|ja|en)$/, '');
+}
+---
+
+<Layout title={`Une Liaison | ${t.news.title}`} lang={lang}>
+  <section class="py-24 bg-white min-h-screen w-full">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl font-bold text-gray-800 mb-6 text-center">{t.news.title}</h1>
+      <p class="text-xl text-gray-600 leading-relaxed mb-8 text-center">
+        {t.news.subtitle}
+      </p>
+
+      <div class="prose prose-lg mx-auto text-gray-800">
+        {news.map((entry) => (
+          <article class="mb-10 pb-8 border-b border-gray-200 last:border-b-0">
+            <h2 class="text-3xl font-bold text-[var(--color-primary)] mb-3">{entry.data.title}</h2>
+            <p class="text-gray-500 text-sm mb-4">
+              {entry.data.date.toLocaleDateString(lang === 'en' ? 'en-US' : lang === 'ja' ? 'ja-JP' : 'zh-TW', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </p>
+            <p class="text-gray-700 leading-relaxed mb-4">{entry.data.excerpt}</p>
+            <a href={`${lp}/news/${getSlug(entry.id)}`} class="text-[var(--color-primary)] hover:underline">{t.news.read_more}</a>
+          </article>
+        ))}
+
+        {news.length === 0 && (
+          <p class="text-center mt-12 text-gray-500">
+            {t.news.coming_soon}
+          </p>
+        )}
+      </div>
+    </div>
+  </section>
+</Layout>

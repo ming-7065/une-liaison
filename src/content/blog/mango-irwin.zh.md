@@ -1,0 +1,32 @@
+---
+title: "夏季的寶藏：台灣愛文芒果的極致誘惑"
+title_ja: "夏の宝物：台湾アーウィンマンゴーの究極の誘惑"
+title_en: "Summer's Treasure: The Ultimate Temptation of Taiwan Irwin Mango"
+date: 2026-03-10
+excerpt: "愛文芒果是台灣夏季的代表性水果，其細膩的果肉、濃郁的香氣和甜美的滋味令人難以忘懷。探索愛文芒果的種植故事和挑選技巧。"
+excerpt_ja: "アウィン芒果は台湾の夏の代表的水果です。その繊細な果肉、豊かな香り、甘い味は忘れられません。"
+excerpt_en: "Irwin mango is the representative fruit of Taiwan's summer. Its tender flesh, rich fragrance, and sweet taste are unforgettable. Explore the growing story and selection tips of Irwin mango."
+emoji: 🥭
+image: /images/blog/mango-irwin.jpg
+locale: zh
+---
+
+## 愛文芒果：夏日的瓊漿玉液
+
+說到台灣夏天的代表水果，愛文芒果絕對是許多人心中的第一名。每一口咬下，那豐盈的果汁與濃郁的香氣，總是讓人忍不住閉上眼睛，享受這片刻的幸福。
+
+### 為何稱為「愛文」？
+
+愛文芒果的原文是"Irwin"，是以美國園藝學家Irwin博士命名。1954年由美國引進台灣後，在台南玉井地區氣候條件的孕育下，展現出絕佳的品質表現，成為台灣芒果的代名詞。
+
+### 產地與品質
+
+台灣愛文芒果的主要產區集中在台南、高雄、屏東等地，其中又以「玉井芒果」最為著名。當地農友採用草生栽培、不使用除草劑的友善種植方式，讓芒果在最自然的環境中成長。
+
+### 挑選與保存
+
+選購時應挑選果形饱满、表皮光滑無斑點、散發自然香氣的果實。購入後可置於室溫後熟，待果皮微微散發香氣時再冷藏保存，約可保存5-7天。
+
+### 創意食譜
+
+除了直接切片享用，愛文芒果還能製成芒果蛋糕、芒果冰淇淋、芒果沙拉等多元料理，為夏日餐桌增添無限風采。

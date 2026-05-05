@@ -1,0 +1,149 @@
+---
+import { companyInfo } from '../data/content';
+import { u, switchLangUrl } from '../utils/url';
+import { supportedLangs, langNames, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  t: {
+    nav: { home: string; about: string; products: string; partners: string; news: string; blog: string; contact: string };
+    theme: { toggle: string };
+  };
+}
+
+const { lang, t } = Astro.props;
+
+const navLinks = [
+  { title: t.nav.home, href: u('/', lang) },
+  { title: t.nav.about, href: u('/about', lang) },
+  { title: t.nav.products, href: u('/products', lang) },
+  { title: t.nav.partners, href: u('/partners', lang) },
+  { title: t.nav.news, href: u('/news', lang) },
+  { title: t.nav.blog, href: u('/blog', lang) },
+  { title: t.nav.contact, href: u('/contact', lang) },
+];
+
+const isActive = (itemPath: string) => {
+  const pathname = Astro.url.pathname;
+  if (pathname === itemPath) return true;
+  if (pathname === itemPath + '/') return true;
+  if (itemPath !== u('/', lang) && pathname.startsWith(itemPath + '/')) return true;
+  return false;
+};
+---
+
+<header class="bg-white/80 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 w-full z-50 transition-colors duration-[300ms]">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-6 flex items-center justify-between">
+    <div class="flex items-center">
+      <a href={u('/', lang)} class="text-2xl font-bold text-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors tracking-widest">
+        {companyInfo.name}
+      </a>
+    </div>
+
+    <div class="hidden md:flex items-center space-x-8">
+      {navLinks.map((link) => (
+        <div class="relative group">
+          <a
+            href={link.href}
+            class="group relative py-2 text-sm font-medium transition-all duration-300 ease-out tracking-widest"
+          >
+            <span class={`relative z-10 transition-colors duration-300 ${isActive(link.href) ? 'text-[var(--color-primary)]' : 'text-slate-600 group-hover:text-[var(--color-primary)]'}`}>
+              {link.title}
+            </span>
+            <span class={`absolute bottom-0 left-1/2 h-[1px] bg-[var(--color-primary)] transition-all duration-300 ease-out -translate-x-1/2 ${isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-4">
+      <button type="button" data-theme-toggle class="p-2 rounded-full text-slate-500 hover:bg-slate-100 hover:text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-primary)] transition-all duration-300 ease-out flex items-center justify-center w-10 h-10">
+        <span class="sr-only">{t.theme.toggle}</span>
+        <span class="text-xl theme-toggle-light-icon transition-transform hover:scale-110">☀️</span>
+        <span class="text-xl hidden theme-toggle-harvest-icon transition-transform hover:scale-110">🍊</span>
+      </button>
+
+      <div class="hidden md:flex items-center gap-2">
+        {supportedLangs.map((l) => (
+          <a
+            href={switchLangUrl(Astro.url, l)}
+            class={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+              l === lang
+                ? 'bg-[var(--color-primary)] text-white'
+                : 'text-slate-500 hover:text-[var(--color-primary)]'
+            }`}
+          >
+            {langNames[l]}
+          </a>
+        ))}
+      </div>
+
+      <div class="md:hidden">
+        <button id="mobile-menu-button" type="button" class="text-slate-500 hover:text-[var(--color-primary)] focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[var(--color-primary)] transition-colors" aria-controls="mobile-menu" aria-expanded="false">
+          <span class="sr-only">打開主選單</span>
+          <svg class="block h-6 w-6 menu-icon-closed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg class="hidden h-6 w-6 menu-icon-open" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="md:hidden hidden bg-white/95 backdrop-blur-md shadow-inner border-t border-slate-100" id="mobile-menu">
+    <div class="px-4 pt-4 pb-6 space-y-2 flex flex-col">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`block px-4 py-3 rounded-lg text-base font-medium tracking-widest transition-colors ${isActive(link.href) ? 'bg-slate-50 text-[var(--color-primary)]' : 'text-slate-600 hover:bg-slate-50 hover:text-[var(--color-primary)]'}`}
+        >
+          {link.title}
+        </a>
+      ))}
+    </div>
+    <div class="px-4 pt-4 pb-6 flex gap-2 border-t border-slate-100 mt-2">
+      {supportedLangs.map((l) => (
+        <a
+          href={switchLangUrl(Astro.url, l)}
+          class={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+            l === lang
+              ? 'bg-[var(--color-primary)] text-white'
+              : 'bg-slate-100 text-slate-600 hover:text-[var(--color-primary)]'
+          }`}
+        >
+          {langNames[l]}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const button = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconClosed = document.querySelector('.menu-icon-closed');
+    const menuIconOpen = document.querySelector('.menu-icon-open');
+
+    if (button && mobileMenu && menuIconClosed && menuIconOpen) {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true' || false;
+        button.setAttribute('aria-expanded', (!isExpanded).toString());
+        mobileMenu.classList.toggle('hidden');
+        menuIconClosed.classList.toggle('hidden');
+        menuIconOpen.classList.toggle('hidden');
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          button.setAttribute('aria-expanded', 'false');
+          mobileMenu.classList.add('hidden');
+          menuIconClosed.classList.remove('hidden');
+          menuIconOpen.classList.add('hidden');
+        });
+      });
+    }
+  });
+</script>

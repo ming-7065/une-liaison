@@ -1,0 +1,27 @@
+---
+title: "チームに参加してください：グローバル貿易担当募集！"
+title_ja: "チームに参加してください：グローバル貿易担当募集！"
+title_en: "Join Our Team: Global Trade Specialist Wanted!"
+date: 2026-02-20
+excerpt: "国際貿易に情熱を持つ人材募集。関連経験があり、挑戦が好きな方は、ぜひポジションをご確認ください。"
+excerpt_ja: "国際貿易に情熱を持つ人材募集。関連経験があり、挑戦が好きな方は、ぜひポジションをご確認ください。"
+excerpt_en: "We are looking for passionate talents in international trade to join our team. If you have relevant experience and enjoy challenges, we welcome you to check out our openings."
+emoji: "📦"
+image: /images/news/team-hiring.jpg
+locale: ja
+---
+
+## 果物に情熱を持つあなたを求めています
+
+国際市場を拡大している中で、情熱があり挑戦を楽しむ貿易担当者を募集しています。競争力のある給与と国際交流の機会を提供します。
+
+### 私たちが期待する人材
+
+- 国際貿易または農業関連分野での経験
+- 流暢な英語能力（日本語は必須ではありません）
+- 獨立して作業しチームと協力する精神
+- 果物と農業への本物の関心
+
+### 応募方法
+
+履歴書とカバーレターを career@une-liaison.com に送信してください。件名に「貿易担当者応募-お名前」と記入してください。

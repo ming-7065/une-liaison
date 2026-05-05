@@ -1,0 +1,43 @@
+---
+title: ドラゴンフルーツ
+title_ja: ドラゴンフルーツ
+title_en: Dragon Fruit
+emoji: 🐉
+description: 赤肉ドラゴンフルーツ、甘み适中、口触りがすがすがしく、食物繊維が豊富。
+description_ja: 赤肉ドラゴンフルーツ、甘み适中、口触りがすがすがしく、食物繊維が豊富。
+description_en: Red-fleshed dragon fruit with moderate sweetness, refreshing taste, and rich dietary fiber.
+features:
+  - すがすがしい
+  - 栄養豊富
+  - 自然さな甘み
+features_ja:
+  - すがすがしい
+  - 栄養豊富
+  - 自然さな甘み
+features_en:
+  - Refreshing
+  - Nutritious
+  - Naturally Sweet
+image: /images/products/dragon-fruit.svg
+locale: ja
+---
+
+## ドラゴンフルーツ：夜幕下のトロピカル瑰宝
+
+火龍果は「仙人掌果」としても知られ、原産地は中米熱帯地域、近年は台湾屏東、南投等地で栽培面積が大幅に増え、品質も逐年向上、外銷市場新兴の寵兒になっている。
+
+### 紅肉の魅力
+
+赤肉火龍果の果肉は嬌嫩的紫红色、多种花青素と甜菜红素を含み、酸化防止効果が高い。果肉繊細で、甘み不爽，冷蔵後品尝更顯清涼爽口。
+
+### 栽培の奥秘
+
+火龍果の獨特之處是其夜間開花的特性，花朵只在夜晚綻放，數小時後便閉合凋謝，因此農友們需要在深夜進行人工授粉，才能確保果實順利成長。
+
+### 健康効果
+
+ビタミンC、食物繊維、鐵分及びオメガ3脂肪酸が豊富で、腸管健康、肌aching保養及心血管保護に役立ちます。健身と養生族群に最適な果物的選択。
+
+### 食用方式
+
+可直接切半用勺子挖食，或切成小塊加入沙拉、優格中。亦可製成火龍果氷沙、果凍或入菜做成鹹食料理。

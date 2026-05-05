@@ -1,0 +1,24 @@
+---
+title: "夏季芒果季即將來臨！"
+title_ja: "夏のマンゴーシーズン到来！"
+title_en: "Summer Mango Season is Coming!"
+date: 2026-03-01
+excerpt: "準備好迎接香甜多汁的台灣芒果了嗎？隨著氣溫逐漸升高，我們預計今年夏季將迎來豐收的芒果季。敬請期待我們帶來的最新鮮芒果品種。"
+excerpt_ja: "甘くてジューシーな台湾マンゴーの準備はできましたか？気温が上がるにつれ、今年のマンゴーシーズンをお楽しみください。"
+excerpt_en: "Are you ready for sweet and juicy Taiwan mangoes? As temperatures rise, we expect a bountiful mango season this summer."
+emoji: 🥭
+image: /images/news/mango-season.jpg
+locale: zh
+---
+
+## 芒果預測豐收年
+
+根據農業試驗所的預測，今年夏季將是芒果的豐收年。年初的雨水充沛，花期氣候穩定，結果率較去年提升約15%。各地產區傳來的消息都令人振奮。
+
+### 預購活動即將開始
+
+為確保您能在第一時間品嚐到最新鮮的愛文芒果，我們將於四月中旬開放預購。搶先預購的客人可享早鳥優惠，包括優先出貨與精美包裝升級。
+
+### 品質保證
+
+每一盒出貨的芒果都經過嚴選，糖度必須達到16度以上才能包裝。我們採用冷鏈配送，從產地到您手中保持在最適溫度，確保每一口都是最佳風味。

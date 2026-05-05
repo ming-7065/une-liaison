@@ -1,0 +1,39 @@
+---
+title: 台灣鳳梨
+title_ja: 台湾パイナップル
+title_en: Taiwan Pineapple
+emoji: 🍍
+description: 金鑽鳳梨，甜度高，果肉細緻，香氣濃郁。
+description_ja: 金鑽パイナップル、甘みが高く、果肉が細かく、香りが浓郁です。
+description_en: Jinzuan pineapple with high sweetness, tender flesh, and rich aroma.
+features:
+  - 香甜多汁
+  - 纖維細緻
+  - 產地直送
+features_ja:
+  - 甘くてジューシー
+  - 繊維が細い
+  - 産地直送
+features_en:
+  - Sweet & Juicy
+  - Fine Texture
+  - Direct from Farm
+image: /images/products/taiwan-pineapple.svg
+locale: zh
+---
+
+## 台灣鳳梨：甜蜜的陽光滋味
+
+台灣鳳梨是寶島最具代表性的水果之一，其中又以「金鑽」品種最受消費者喜愛。每年三月到九月是台灣鳳梨的主要產季，此時的鳳梨甜度最高、風味最為浓郁。
+
+### 營養價值
+
+台灣鳳梨富含維生素C、維生素B1、錳及膳食纖維，有助於消化、抗氧化並提升免疫力。其中的「鳳梨蛋白酶」更能幫助蛋白質分解，促進腸胃吸收。
+
+### 挑選技巧
+
+選購時可注意果實表面鱗目均勻、色澤金黃，輕敲果皮時聲音低沉渾厚者為佳。果柄切口新鲜、無蟲害跡象者品質較有保障。
+
+### 保存方式
+
+室溫存放約3-5天，可直接食用或入菜。若希望延長保存期限，可去皮切塊後冷藏約一週，或製成果乾、果汁保存。

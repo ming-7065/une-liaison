@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>cms</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 960px; margin: 40px auto; padding: 0 24px; line-height: 1.75; color: #2d3748; background: #fff; }
+h1 { font-size: 1.8em; color: #1a202c; border-bottom: 3px solid #48bb78; padding-bottom: 10px; margin-top: 0; }
+h2 { font-size: 1.4em; color: #2d3748; margin-top: 40px; border-left: 4px solid #48bb78; padding-left: 12px; }
+h3 { font-size: 1.15em; color: #4a5568; margin-top: 28px; }
+h4 { font-size: 1em; color: #718096; margin-top: 20px; }
+p { margin: 12px 0; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.95em; }
+th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; }
+th { background: #edf2f7; font-weight: 600; }
+tr:nth-child(even) { background: #f7fafc; }
+code { background: #edf2f7; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; font-family: "SF Mono", Monaco, monospace; }
+pre { background: #1a202c; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; line-height: 1.5; }
+pre code { background: none; padding: 0; color: inherit; }
+a { color: #2b6cb0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { border-left: 4px solid #cbd5e0; margin: 20px 0; padding: 10px 20px; color: #718096; background: #f7fafc; border-radius: 0 8px 8px 0; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 36px 0; }
+li { margin: 4px 0; }
+</style></head>
+<body>
+<h1>CMS 後台設定流程</h1>
+<br>
+<h2>技術棧</h2>
+<br>
+<li><strong>CMS</strong>: Sveltia CMS（Decap CMS 替代品，MIT 開源）</li>
+<li><strong>載入方式</strong>: CDN（<code>unpkg.com/@sveltia/cms/dist/sveltia-cms.js</code>）</li>
+<li><strong>後端</strong>: GitHub（<code>backend: github</code>）</li>
+<li><strong>本機開發</strong>: File System Access API（需 Chrome-based 瀏覽器）</li>
+<li><strong>內容格式</strong>: Markdown + YAML frontmatter</li>
+<br>
+<h2>檔案結構</h2>
+<br>
+<pre><code>public/admin/
+  config.yml       ← CMS collection 定義、i18n 設定
+src/pages/
+  admin.astro      ← CMS 入口頁（載入 CDN script）
+src/content/
+  products/*.md    ← CMS 編輯的產品內容
+  news/*.md        ← CMS 編輯的新聞內容
+  blog/*.md        ← CMS 編輯的部落格內容</code></pre>
+<br>
+<h2>admin.astro（CMS 入口頁）</h2>
+<br>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" /&gt;
+    &lt;title&gt;Content Manager — Une Liaison&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Loading CMS...&lt;/p&gt;
+    &lt;script type="module" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<br>
+<p>關鍵點：</p>
+<li><code>&lt;link rel="cms-config-url"&gt;</code> 告訴 CMS 去哪裡讀 config.yml</li>
+<li><code>&lt;script type="module"&gt;</code> — Sveltia CMS 是 ES module，必須有這個屬性</li>
+<li>有屬性的 <code>&lt;script&gt;</code> Astro 不會透過 Vite 處理，原始保留</li>
+<br>
+<h2>config.yml 結構</h2>
+<br>
+<pre><code>i18n:
+  structure: multiple_files     # 每個 locale 獨立一個檔案
+  locales: [zh, ja, en]         # 內容編輯可切換的三種語言
+  default_locale: zh
+
+locale: 'zh_TW'                 # CMS 介面語言（按鈕、選單）
+
+backend:
+  name: github                  # 支援 github/gitlab/gitea
+  repo: une-liaison/une-liaison
+  branch: main
+
+media_folder: public/images     # 圖片存放路徑（相對專案根目錄）
+public_folder: /images          # 圖片公開 URL 路徑
+
+collections:
+  - name: products
+    label: 台灣水果
+    folder: src/content/products
+    i18n: true                  # 啟用多語系編輯
+    fields:
+      - { name: title, label: 標題, widget: string, i18n: true }
+      - { name: body, label: 詳細介紹, widget: markdown, i18n: true }
+      # ... 更多欄位</code></pre>
+<br>
+<h3>欄位 i18n 屬性</h3>
+<br>
+<table><thead><tr><th>值</th><th>行為</th></tr></thead><tbody><tr><td><code>true</code></td><td>每個語言可獨立編輯</td></tr><tr><td><code>duplicate</code></td><td>只在預設語言可編輯，其他語言唯讀共用</td></tr><tr><td><code>false</code></td><td>不出現在非預設語言</td></tr></tbody></table>
+<br>
+<h2>本機開發流程</h2>
+<br>
+<h3>需求</h3>
+<br>
+<li>Chrome / Edge / Brave（Chromium-based 瀏覽器）</li>
+<li>專案根目錄有 <code>.git</code>（<code>git init</code>）</li>
+<li>專案 dev server 運行中</li>
+<br>
+<h3>步驟</h3>
+<br>
+<p>1. <code>cd ~/une-liaison &amp;&amp; npx astro dev</code></p>
+<p>2. 開 Chrome → <code>http://localhost:4321/admin/index.html</code></p>
+<p>3. 點「Work with Local Repository」</p>
+<p>4. 選擇 <code>/Users/yezhiming/une-liaison</code> 目錄</p>
+<p>5. CMS 會直接讀寫 <code>src/content/</code> 內的 markdown 檔案</p>
+<p>6. 編輯完後用 <code>git diff</code> → <code>git commit</code> 提交變更</p>
+<br>
+<h3>注意</h3>
+<br>
+<li>非 Chromium 瀏覽器（Safari、Firefox）不支援 File System Access API</li>
+<li>不需要 proxy server（Sveltia CMS 新版捨棄了舊版 Decap CMS 的 proxy 模式）</li>
+<li>CMS 不會自動做 git commit，需手動 git 操作</li>
+<br>
+<h2>部署流程（規劃中）</h2>
+<br>
+<p>1. 內容編輯者在 CMS 編輯內容</p>
+<p>2. CMS 透過 GitHub API commit 到 repo</p>
+<p>3. Cloudflare Pages 偵測到 push → 自動 rebuild</p>
+<p>4. 靜態頁面部署到 CDN</p>
+<br>
+</body></html>

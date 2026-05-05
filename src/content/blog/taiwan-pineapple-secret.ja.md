@@ -1,0 +1,33 @@
+---
+title: "台湾パイナップル：甘さと香りの秘密"
+title_ja: "台湾パイナップル：甘さと香りの秘密"
+title_en: "Taiwan Pineapple: The Secret of Sweetness and Aroma"
+date: 2026-03-20
+excerpt: "台湾パイナップルは其独有的ジンツァンの風味で世界中に知られています。この文章では、パイナップルの品種の特色、最良の食べ方、健康への効果をご紹介します。"
+excerpt_ja: "台湾パイナップルは其独有的ジンツァンの風味で世界中に知られています。この文章では、パイナップルの品種の特色、最良の食べ方、健康への効果をご紹介します。"
+excerpt_en: "Taiwan pineapple is renowned worldwide for its unique Jinzuan flavor. This article takes you through the characteristics of different pineapple varieties, the best ways to enjoy them, and the health benefits of pineapple."
+emoji: 🍍
+image: /images/blog/pineapple-secret.jpg
+locale: ja
+---
+
+## 金鑽鳳梨的秘密
+
+台湾パイナップルの品種は多く、その中で「金鑽」は市場で最も愛される品種是其名稱來自於果實成熟時表皮呈現的金黃色澤，如同金色鑽石般閃耀。
+
+### 品種紹介
+
+台湾で一般的なパイナップルの品种は以下の通りです：
+
+- **金鑽**：甘さ16-18度、果肉細かく、最も新鮮な食べ方に適しています
+- **牛奶パイナップル**：淡淡の牛奶香気あり口感繊細
+- **蜜糖パイナップル**：甘さ20度以上
+- **釋迦パイナップル**：口感接近釋迦，綿密香甜
+
+### 健康効果
+
+パイナップルは「パイナップル蛋白質分解酵素」（bromelain）が豊富で、この酵素は蛋白質消化を助け、食後に適量のハブナップルを食べると腸蠕動を助けます。
+
+### 最もおいしい食べ方
+
+ハブナップルを切り分け冷藏後そのまま食べると其の旨味が最もよく分かります。

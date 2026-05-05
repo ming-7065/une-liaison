@@ -1,0 +1,39 @@
+---
+title: 青森りんご
+title_ja: 青森りんご
+title_en: Aomori Apple
+emoji: 🍎
+description: 日本青森からの最高級紅ロールりんご、しゃきっとジューシー、甘さと酸度の完璧なバランス。
+description_ja: 日本青森からの最高級紅ロールりんご、しゃきっとジューシー、甘さと酸度の完璧なバランス。
+description_en: Premium Fuji apple from Aomori, Japan. Crisp, juicy, perfect balance of sweetness and acidity.
+features:
+  - しゃきっとジューシー
+  - 酸甜バランス
+  - 産地直送
+features_ja:
+  - しゃきっとジューシー
+  - 酸甜バランス
+  - 産地直送
+features_en:
+  - Crisp & Juicy
+  - Balanced Sweetness
+  - Direct from Farm
+image: /images/products/aomori-apple.svg
+locale: ja
+---
+
+## 青森りんご：陽光と雪水の洗練
+
+日本青森縣は全世界で最もりんごの栽培に適している地域の一つ、夏季の十分な日照りと冬季の寒く長い气候条件に 의해、每一颗りんご都能緩慢累積糖分與風味。
+
+### 富士りんごの伝説
+
+青森ふじりんごは其清脆多汁的口感而出名，一口咬下即可听到清脆的声音。果肉細胞結構緊密，儲存了滿滿的果汁與糖分，甘さは約14-15度之间，搭配恰到好处の酸度，構成完美的平衡。
+
+### 産地與栽培
+
+青森縣のりんご園是多採用「套袋栽培」技術，在果實成長初期套上紙袋保護，隔絕農藥與病蟲害，採收前數週再去紙袋，讓陽光自然著色。这样の栽培方式讓蘋果表皮呈現均匀的深紅色。
+
+### 保存與品嚐
+
+室温保存約两週，冷蔽可延長至一到兩個月。建议冷蔽後直接切片享用，最能品嚐其清脆口感與豐沛果汁。

@@ -1,0 +1,75 @@
+i18n:
+  structure: multiple_files
+  locales: [zh, ja, en]
+  default_locale: zh
+
+backend:
+  name: test-repo
+  branch: main
+
+local_backend: true
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: products
+    label: 台灣水果
+    label_singular: 水果
+    folder: src/content/products
+    create: true
+    i18n: true
+    slug: '{{slug}}'
+    fields:
+      - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
+      - { name: title, label: 標題, widget: string, i18n: true }
+      - { name: title_ja, label: 日文標題, widget: string, i18n: true }
+      - { name: title_en, label: 英文標題, widget: string, i18n: true }
+      - { name: emoji, label: Emoji, widget: string, i18n: duplicate }
+      - { name: description, label: 簡介, widget: text, i18n: true }
+      - { name: description_ja, label: 日文簡介, widget: text, i18n: true }
+      - { name: description_en, label: 英文簡介, widget: text, i18n: true }
+      - { name: features, label: 特色, widget: list, i18n: true }
+      - { name: features_ja, label: 日文特色, widget: list, i18n: true }
+      - { name: features_en, label: 英文特色, widget: list, i18n: true }
+      - { name: image, label: 產品圖片, widget: image, i18n: duplicate, required: false }
+      - { name: body, label: 詳細介紹, widget: markdown, i18n: true }
+
+  - name: news
+    label: 最新消息
+    label_singular: 消息
+    folder: src/content/news
+    create: true
+    i18n: true
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    fields:
+      - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
+      - { name: title, label: 標題, widget: string, i18n: true }
+      - { name: title_ja, label: 日文標題, widget: string, i18n: true }
+      - { name: title_en, label: 英文標題, widget: string, i18n: true }
+      - { name: date, label: 日期, widget: datetime, i18n: duplicate }
+      - { name: excerpt, label: 摘要, widget: text, i18n: true }
+      - { name: excerpt_ja, label: 日文摘要, widget: text, i18n: true }
+      - { name: excerpt_en, label: 英文摘要, widget: text, i18n: true }
+      - { name: emoji, label: Emoji, widget: string, i18n: duplicate, required: false }
+      - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
+      - { name: body, label: 內文, widget: markdown, i18n: true }
+
+  - name: blog
+    label: 部落格
+    label_singular: 文章
+    folder: src/content/blog
+    create: true
+    i18n: true
+    slug: '{{slug}}'
+    fields:
+      - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
+      - { name: title, label: 標題, widget: string, i18n: true }
+      - { name: title_ja, label: 日文標題, widget: string, i18n: true }
+      - { name: title_en, label: 英文標題, widget: string, i18n: true }
+      - { name: date, label: 日期, widget: datetime, i18n: duplicate }
+      - { name: excerpt, label: 摘要, widget: text, i18n: true }
+      - { name: excerpt_ja, label: 日文摘要, widget: text, i18n: true }
+      - { name: excerpt_en, label: 英文摘要, widget: text, i18n: true }
+      - { name: emoji, label: Emoji, widget: string, i18n: duplicate, required: false }
+      - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
+      - { name: body, label: 內文, widget: markdown, i18n: true }

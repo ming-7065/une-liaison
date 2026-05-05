@@ -1,0 +1,33 @@
+---
+title: "台灣鳳梨：甜度與香氣的秘密"
+title_ja: "台湾パイナップル：甘さと香りの秘密"
+title_en: "Taiwan Pineapple: The Secret of Sweetness and Aroma"
+date: 2026-03-20
+excerpt: "台灣鳳梨以其獨特的金鑽風味聞名全球。本文將帶您了解不同鳳梨品種的特色、最佳食用方式，以及鳳梨對健康的益處。"
+excerpt_ja: "台湾パイナップルは其独有的ジンツァンの風味で世界中に知られています。この文章では、パイナップルの品種の特色、最良の食べ方、健康への効果をご紹介します。"
+excerpt_en: "Taiwan pineapple is renowned worldwide for its unique Jinzuan flavor. This article takes you through the characteristics of different pineapple varieties, the best ways to enjoy them, and the health benefits of pineapple."
+emoji: 🍍
+image: /images/blog/pineapple-secret.jpg
+locale: zh
+---
+
+## 金鑽鳳梨的秘密
+
+台灣鳳梨的品種繁多，其中「金鑽」是最受市場歡迎的明星品種。其名稱來自於果實成熟時表皮呈現的金黃色澤，如同金色鑽石般閃耀。
+
+### 品種介紹
+
+台灣常見的鳳梨品種包括：
+
+- **金鑽**：甜度高達16-18度，果肉細緻，最適合鮮食
+- **牛奶鳳梨**：帶有淡淡牛奶香氣，口感綿密
+- **蜜糖鳳梨**：糖度驚人，可達20度以上
+- **釋迦鳳梨**：口感接近釋迦，綿密香甜
+
+### 健康益處
+
+鳳梨富含「鳳梨蛋白酶」（bromelain），這種酶能幫助人體消化蛋白質，飯後食用適量鳳梨有助於腸胃蠕動。此外，維生素C含量豐富，每100克鳳梨就能提供約50毫克的維生素C，滿足人體每日需求的一半。
+
+### 最佳食用方式
+
+將鳳梨切塊冰鎮後直接食用，最能品嚐其原味。亦可製成鳳梨果汁、鳳梨冰沙，或入菜做鳳梨蝦球、鳳梨炒飯等傳統台菜。

@@ -1,0 +1,39 @@
+---
+title: 台灣芒果
+title_ja: 台湾マンゴー
+title_en: Taiwan Mango
+emoji: 🥭
+description: 愛文芒果，果肉橙黃，香氣馥郁，口感滑順。
+description_ja: アوين芒果、果肉がオレンジ色で、香りが浓郁、舌触りが滑らかです。
+description_en: Irwin mango with orange-yellow flesh, rich fragrance, and smooth texture.
+features:
+  - 香甜軟糯
+  - 熱帶風味
+  - 季節限定
+features_ja:
+  - 甘くて柔らかい
+  - トロピカル风味
+  - 季節限定
+features_en:
+  - Sweet & Tender
+  - Tropical Flavor
+  - Seasonal
+image: /images/products/taiwan-mango.svg
+locale: zh
+---
+
+## 台灣芒果：夏季的甜蜜驕傲
+
+台灣愛文芒果馳名國際每年五月至七月是主要產季，果農們以在欉自然後熟的方式照料每一棵果樹，讓芒果在枝頭上充分累積糖分與香氣。
+
+### 特色風味
+
+果實呈現自然的橙黃色，表皮薄而光滑，約18-20度的甜度輕嚐一口就能感受到濃郁的熱帶風情。果肉細嫩無纖維，入口即化，留下淡淡的芒果清香。
+
+### 產地故事
+
+主要產區分布於台南玉井、高雄等地。這裡的農友堅持草生栽培、不使用除草劑，以友善土地的方式種植，讓每一顆芒果都能吸收最純淨的陽光與水分。
+
+### 食用建議
+
+選購時以果粒饱满、表皮無斑點、散發自然香氣者為佳。冰鎮後切片品嚐，或製成芒果汁、芒果冰沙，都是消暑聖品。

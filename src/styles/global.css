@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ═══════════════════════════════════════════
+   修復明暗模式切換 — 讓 Tailwind v4 響應 .dark class
+   這樣按下按鈕才能真正切換顏色！
+   ═══════════════════════════════════════════ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ═══════════════════════════════════════════
+   手機字體放大 — 解決手機顯示太小的問題
+   ═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  :root,
+  :root body {
+    font-size: 17px !important;
+    --astro-dt-font-size: 17px !important;
+  }
+}
+
+/* 針對選取文字的顏色 */
+::selection {
+  background-color: var(--color-primary, #66BB6A); /* 使用 primary 顏色，或預設綠色 */
+  color: white; /* 確保選取文字為白色 */
+}
+
+/* 確保 Prose 內的連結在深色模式下對比度良好 */
+.prose a {
+  color: var(--color-primary, #66BB6A);
+}
+
+.dark .prose a {
+  color: var(--color-primary-dark, #4CAF50); /* 深色模式下的 primary 連結色 */
+}
+
+/* ═══════════════════════════════════════════
+   自定義 CSS 變數用於主題切換 (Palette & Dark Mode)
+   這些變數將根據 html[data-palette] 和 .dark 類別動態設定
+   直接使用 Hex 值以避免 Tailwind CSS build 錯誤
+   ═══════════════════════════════════════════ */
+:root {
+  /* Sunshine — 清新綠意 */
+  --color-primary: #4CAF50;
+  --color-secondary: #FFD54F;
+  --color-accent: #FF8A65;
+  --color-primary-dark: #388E3C;
+  --color-secondary-dark: #FFC107;
+  --color-accent-dark: #FF7043;
+  --bg-page: #F4FBF4;        /* 極淡薄荷底 */
+  --bg-card: #ffffff;
+}
+
+html[data-palette="harvest"] {
+  /* Harvest — 秋收橙暖 */
+  --color-primary: #E8650A;
+  --color-secondary: #F5A623;
+  --color-accent: #795548;
+  --color-primary-dark: #BF360C;
+  --color-secondary-dark: #E65100;
+  --color-accent-dark: #4E342E;
+  --bg-page: #FDF0E3;        /* 溫暖琥珀底 */
+  --bg-card: #FFFAF5;
+}
+
+/* ═══════════════════════════════════════════
+   主題背景 — 平滑漸進切換
+   ═══════════════════════════════════════════ */
+.theme-bg {
+  background-color: var(--bg-page);
+  transition: background-color 0.7s ease;
+}
+
+/* Section 透明，底色統一由 .theme-bg 控制 */
+section {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* ═══════════════════════════════════════════
+   卡片光暈 + 點擊彈跳效果
+   ═══════════════════════════════════════════ */
+.card-glow {
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 14px -6px var(--color-primary);
+}

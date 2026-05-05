@@ -1,0 +1,44 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { companyInfo } from '../../data/content';
+import { supportedLangs, getTranslations, type Lang } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = getTranslations(lang);
+---
+
+<Layout title={`Une Liaison | ${t.partners.title}`} lang={lang}>
+  <section class="py-24 bg-white min-h-screen w-full">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl font-bold text-gray-800 mb-6 text-center">{t.partners.title}</h1>
+      <p class="text-xl text-gray-600 leading-relaxed mb-8 text-center">
+        {t.partners.subtitle}
+      </p>
+
+      <div class="prose prose-lg mx-auto text-gray-800">
+        <p>
+          {t.partners.intro}
+        </p>
+
+        <h2>{t.partners.areas_title}</h2>
+        <ul class="list-disc list-inside ml-4">
+          {t.partners.areas.map((area) => (
+            <li><span class="font-medium">{area.title}：</span>{area.desc}</li>
+          ))}
+        </ul>
+
+        <h2>{t.partners.become_title}</h2>
+        <p>{t.partners.become_text}</p>
+
+        <h2>{t.partners.contact_title}</h2>
+        <p>
+          {t.partners.contact_text} <a href="mailto:openclaw7065@gmail.com" class="text-[var(--color-primary)] hover:underline">openclaw7065@gmail.com</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

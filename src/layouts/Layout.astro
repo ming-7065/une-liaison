@@ -1,0 +1,180 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { ClientRouter } from 'astro:transitions';
+import { companyInfo } from '../data/content';
+import { getTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  lang?: Lang;
+}
+
+const {
+  title = `${companyInfo.name} | ${companyInfo.tagline}`,
+  description,
+  image = '/og-default.png',
+  lang = 'zh',
+} = Astro.props;
+
+const defaultDescriptions = {
+  zh: '專注於台灣水果貿易的公司，致力於將新鮮、優質的水果帶給全球的消費者',
+  ja: '台湾フルーツ貿易に特化した会社。新鮮で質な果物を世界中の消費者に届けることに尽力しています',
+  en: 'A company focused on Taiwan fruit trade, dedicated to bringing fresh, premium fruits to global consumers',
+};
+const t = getTranslations(lang);
+const metaDescription = description || defaultDescriptions[lang] || defaultDescriptions.en;
+
+const siteUrl = (Astro.site ?? '').toString().replace(/\/$/, '');
+const canonicalUrl = `${siteUrl}${Astro.url.pathname}`;
+---
+
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-TW' : lang === 'ja' ? 'ja' : 'en'} data-palette="sunshine" class="scroll-smooth overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" type="application/rss+xml" title={`${companyInfo.name} RSS Feed`} href="/rss.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={`${siteUrl}${image}`} />
+    <meta property="og:locale" content={lang === 'zh' ? 'zh_TW' : lang === 'ja' ? 'ja_JP' : 'en_US'} />
+    <meta property="og:site_name" content={companyInfo.name} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${image}`} />
+    <ClientRouter />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <script is:inline>
+      const applyTheme = () => {
+        const storedPalette = typeof localStorage !== 'undefined' && localStorage.getItem('palette');
+        let palette = storedPalette || 'sunshine';
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-palette', palette);
+      };
+      applyTheme();
+      document.addEventListener('astro:after-swap', applyTheme);
+    </script>
+  </head>
+  <body class="bg-white text-slate-800 antialiased min-h-screen flex flex-col font-sans selection:bg-[var(--color-primary)] selection:text-white transition-colors duration-[300ms] ease-in-out text-base md:text-base overflow-x-hidden relative">
+
+    <div class="theme-bg fixed inset-0 z-[-1] pointer-events-none"></div>
+
+    <div id="edge-glow-top" class="fixed top-0 left-0 w-full h-48 bg-gradient-to-b from-indigo-500/40 via-purple-500/10 to-transparent blur-3xl opacity-0 transition-opacity duration-700 pointer-events-none z-[100] mix-blend-multiply"></div>
+    <div id="edge-glow-bottom" class="fixed bottom-0 left-0 w-full h-48 bg-gradient-to-t from-purple-500/40 via-fuchsia-500/10 to-transparent blur-3xl opacity-0 transition-opacity duration-700 pointer-events-none z-[100] mix-blend-multiply"></div>
+
+    <Header lang={lang} t={t} />
+
+    <main class="flex-grow w-full pt-16 md:pt-24 pb-20 relative z-10">
+      <slot />
+    </main>
+
+    <Footer lang={lang} t={t} />
+
+    <script is:inline>
+      const initEdgeGlow = () => {
+        const glowTop = document.getElementById('edge-glow-top');
+        const glowBottom = document.getElementById('edge-glow-bottom');
+
+        if (!glowTop || !glowBottom) return;
+
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+
+          if (scrollTop <= 20) {
+            glowTop.style.opacity = '1';
+          } else {
+            glowTop.style.opacity = '0';
+          }
+
+          if (maxScroll <= 0) {
+            glowBottom.style.opacity = '0';
+          } else if (scrollTop >= maxScroll - 20) {
+            glowBottom.style.opacity = '1';
+          } else {
+            glowBottom.style.opacity = '0';
+          }
+        };
+
+        handleScroll();
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('resize', handleScroll, { passive: true });
+
+        document.addEventListener('astro:before-swap', () => {
+          window.removeEventListener('scroll', handleScroll);
+          window.removeEventListener('resize', handleScroll);
+        }, { once: true });
+      };
+
+      document.addEventListener('astro:page-load', initEdgeGlow);
+    </script>
+
+    <script is:inline>
+      const initThemeToggle = () => {
+        const themeToggleBtns = document.querySelectorAll('[data-theme-toggle]');
+        if (themeToggleBtns.length === 0) return;
+
+        themeToggleBtns.forEach(btn => {
+          const lightIcon = btn.querySelector('.theme-toggle-light-icon');
+          const harvestIcon = btn.querySelector('.theme-toggle-harvest-icon');
+
+          const currentPalette = document.documentElement.getAttribute('data-palette') || 'sunshine';
+
+          if (lightIcon) lightIcon.classList.toggle('hidden', currentPalette === 'harvest');
+          if (harvestIcon) harvestIcon.classList.toggle('hidden', currentPalette === 'sunshine');
+
+          const handleToggleClick = (e) => {
+            e.preventDefault();
+
+            let newPalette = 'sunshine';
+            const currentPaletteState = document.documentElement.getAttribute('data-palette');
+
+            if (currentPaletteState === 'sunshine') {
+              newPalette = 'harvest';
+            } else {
+              newPalette = 'sunshine';
+            }
+
+            document.documentElement.setAttribute('data-palette', newPalette);
+            localStorage.setItem('palette', newPalette);
+
+            if (lightIcon) lightIcon.classList.toggle('hidden', newPalette === 'harvest');
+            if (harvestIcon) harvestIcon.classList.toggle('hidden', newPalette === 'sunshine');
+
+            const bgDiv = document.querySelector('.fixed.inset-0');
+            if(bgDiv) {
+              bgDiv.setAttribute('data-palette', newPalette);
+            }
+          };
+
+          btn.removeEventListener('click', handleToggleClick);
+          btn.addEventListener('click', handleToggleClick);
+        });
+
+        const currentPalette = document.documentElement.getAttribute('data-palette') || 'sunshine';
+        const bgDiv = document.querySelector('.fixed.inset-0');
+        if(bgDiv) bgDiv.setAttribute('data-palette', currentPalette);
+      };
+
+      document.addEventListener('astro:page-load', initThemeToggle);
+    </script>
+  </body>
+</html>

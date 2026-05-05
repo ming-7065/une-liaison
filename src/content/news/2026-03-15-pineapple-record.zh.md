@@ -1,0 +1,26 @@
+---
+title: "台灣鳳梨出口再創新高！"
+title_ja: "台湾パイナップルの輸出が過去最高を更新！"
+title_en: "Taiwan Pineapple Exports Hit New Record!"
+date: 2026-03-15
+excerpt: "我們很高興地宣布，今年台灣鳳梨的出口量再次突破紀錄，感謝全球消費者對台灣高品質水果的熱愛與支持。我們將持續與在地果農合作，確保每一顆鳳梨都擁有最完美的風味。"
+excerpt_ja: "台湾パイナップルの輸出量が今年も記録を更新。世界中の消費者の台湾高品質果物へのご支持に感謝します。"
+excerpt_en: "We are thrilled to announce that Taiwan pineapple exports have broken records again this year. Thanks to global consumers' love for Taiwan's high-quality fruits."
+emoji: 🍍
+image: /images/news/pineapple-record.jpg
+locale: zh
+---
+
+## 平錄突破的幕後功臣
+
+今年平錄能够再創新高，除了天候條件得宜外，更要歸功於台灣果農近年來導入的智慧農業管理系統。從土壤檢測、水分監控到最佳的採收時機判斷，每一個環節都透過數據分析做到精準管理。
+
+此外，在政府與民間的共同努力下，台灣鳳梨的檢疫與包裝流程也更加國際化，符合各進口國的嚴格標準，讓台灣鳳梨得以順利进入北美、加拿大及東南亞市場。
+
+### 在地合作的重要性
+
+我們深知，要維持水果的品質穩定性，必須與產地建立深厚的合作關係。這些年來，我們與嘉義、台南、屏東的鳳梨產區農友保持長期契約合作，確保水果從栽種到出貨的每一個環節都在嚴格的品質管控下進行。
+
+### 未來展望
+
+下一步，我們计划将台灣鳳梨推入中東與歐盟市場，並持續投入資源協助農友提升設備與技術。期待平錄的甜美能傳遞到世界每個角落。

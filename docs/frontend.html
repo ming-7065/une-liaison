@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>frontend</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 960px; margin: 40px auto; padding: 0 24px; line-height: 1.75; color: #2d3748; background: #fff; }
+h1 { font-size: 1.8em; color: #1a202c; border-bottom: 3px solid #48bb78; padding-bottom: 10px; margin-top: 0; }
+h2 { font-size: 1.4em; color: #2d3748; margin-top: 40px; border-left: 4px solid #48bb78; padding-left: 12px; }
+h3 { font-size: 1.15em; color: #4a5568; margin-top: 28px; }
+h4 { font-size: 1em; color: #718096; margin-top: 20px; }
+p { margin: 12px 0; }
+table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 0.95em; }
+th, td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; }
+th { background: #edf2f7; font-weight: 600; }
+tr:nth-child(even) { background: #f7fafc; }
+code { background: #edf2f7; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; font-family: "SF Mono", Monaco, monospace; }
+pre { background: #1a202c; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; line-height: 1.5; }
+pre code { background: none; padding: 0; color: inherit; }
+a { color: #2b6cb0; text-decoration: none; }
+a:hover { text-decoration: underline; }
+blockquote { border-left: 4px solid #cbd5e0; margin: 20px 0; padding: 10px 20px; color: #718096; background: #f7fafc; border-radius: 0 8px 8px 0; }
+hr { border: none; border-top: 2px solid #e2e8f0; margin: 36px 0; }
+li { margin: 4px 0; }
+</style></head>
+<body>
+<h1>前端頁面架構</h1>
+<br>
+<h2>頁面清單（65 pages total）</h2>
+<br>
+<h3>三語頁面（每頁 × 3）</h3>
+<br>
+<table><thead><tr><th>路徑</th><th>檔案</th><th>資料來源</th></tr></thead><tbody><tr><td><code>/[lang]/</code></td><td><code>index.astro</code></td><td><code>src/data/content.ts</code> → 需遷移到 content collection</td></tr><tr><td><code>/[lang]/about/</code></td><td><code>about.astro</code></td><td><code>i18n/{lang}.ts</code> → <code>t.about.*</code></td></tr><tr><td><code>/[lang]/products/</code></td><td><code>products.astro</code></td><td><code>getCollection('products')</code> ✅</td></tr><tr><td><code>/[lang]/products/[slug]/</code></td><td><code>products/[slug].astro</code></td><td><code>getCollection('products')</code> + <code>render(entry)</code> ✅</td></tr><tr><td><code>/[lang]/partners/</code></td><td><code>partners.astro</code></td><td><code>i18n/{lang}.ts</code> → <code>t.partners.*</code></td></tr><tr><td><code>/[lang]/news/</code></td><td><code>news.astro</code></td><td><code>getCollection('news')</code> ✅</td></tr><tr><td><code>/[lang]/news/[slug]/</code></td><td><code>news/[slug].astro</code></td><td><code>getCollection('news')</code> + <code>render(entry)</code> ✅</td></tr><tr><td><code>/[lang]/blog/</code></td><td><code>blog.astro</code></td><td><code>getCollection('blog')</code> ✅</td></tr><tr><td><code>/[lang]/blog/[slug]/</code></td><td><code>blog/[slug].astro</code></td><td><code>getCollection('blog')</code> + <code>render(entry)</code> ✅</td></tr><tr><td><code>/[lang]/contact/</code></td><td><code>contact.astro</code></td><td><code>i18n/{lang}.ts</code> → <code>t.contact.*</code></td></tr><tr><td><code>/[lang]/privacy-policy/</code></td><td><code>privacy-policy.astro</code></td><td><code>i18n/{lang}.ts</code> → <code>t.privacy.*</code></td></tr><tr><td><code>/[lang]/terms-of-service/</code></td><td><code>terms-of-service.astro</code></td><td><code>i18n/{lang}.ts</code> → <code>t.terms.*</code></td></tr><tr><td><code>/[lang]/404/</code></td><td><code>404.astro</code></td><td><code>i18n/{lang}.ts</code> → <code>t.404.*</code></td></tr></tbody></table>
+<br>
+<h3>單一頁面</h3>
+<br>
+<table><thead><tr><th>路徑</th><th>檔案</th><th>用途</th></tr></thead><tbody><tr><td><code>/</code></td><td><code>index.astro</code></td><td>語言路由轉向（→ <code>/zh/</code>）</td></tr><tr><td><code>/admin/</code></td><td><code>admin.astro</code></td><td>Sveltia CMS 後台入口</td></tr></tbody></table>
+<br>
+<h3>支援的語言參數</h3>
+<br>
+<pre><code>[lang] ∈ { zh, ja, en }</code></pre>
+<br>
+<p>在 <code>getStaticPaths()</code> 中定義。</p>
+<br>
+<h2>資料流</h2>
+<br>
+<pre><code>                      ┌─────────────────────┐
+                      │  i18n/{lang}.ts     │ ← UI 文字字典（導航、標題、按鈕）
+                      │  靜態文字（zh/ja/en）│
+                      └──────────┬──────────┘
+                                 │
+                      ┌──────────▼──────────┐
+  Sveltia CMS 編輯 ──►│  src/content/*.md   │ ← 內容（產品、新聞、部落格）
+                      │  動態內容（可編輯）  │
+                      └──────────┬──────────┘
+                                 │
+                      ┌──────────▼──────────┐
+                      │  Astro Build        │
+                      │  getCollection()    │
+                      │  render(entry)       │
+                      └──────────┬──────────┘
+                                 │
+                      ┌──────────▼──────────┐
+                      │  dist/ 靜態 HTML    │
+                      │  65 pages           │
+                      └─────────────────────┘</code></pre>
+<br>
+<h2>Content Collection Schema</h2>
+<br>
+<h3>Products</h3>
+<br>
+<pre><code>title: 中文標題
+title_ja: 日文標題
+title_en: 英文標題
+emoji: 🍍
+description: 中文簡介
+description_ja: 日文簡介
+description_en: 英文簡介
+features: [特色1, 特色2]   # 中文
+features_ja: [特色1, 特色2]  # 日文
+features_en: [Feature1, Feature2]  # 英文
+image: /images/products/xxx.jpg
+locale: zh
+---
+Markdown 內文（產地故事、營養價值等）</code></pre>
+<br>
+<h3>News</h3>
+<br>
+<pre><code>title: 標題
+title_ja: 日文標題
+title_en: English Title
+date: 2026-03-15
+excerpt: 摘要
+excerpt_ja: 日文摘要
+excerpt_en: English Excerpt
+emoji: 🍍
+image: /images/news/xxx.jpg
+locale: zh
+---
+Markdown 內文（完整新聞內容）</code></pre>
+<br>
+<h3>Blog</h3>
+<br>
+<pre><code>title: 標題
+title_ja: 日文標題
+title_en: English Title
+date: 2026-03-20
+excerpt: 摘要
+excerpt_ja: 日文摘要
+excerpt_en: English Excerpt
+emoji: 🍍
+image: /images/blog/xxx.jpg
+locale: zh
+---
+Markdown 內文（完整文章內容）</code></pre>
+<br>
+<h2>待修正</h2>
+<br>
+<table><thead><tr><th>問題</th><th>位置</th><th>狀態</th></tr></thead><tbody><tr><td>首頁仍用 <code>content.ts</code> 而非 content collection</td><td><code>index.astro</code></td><td>📋</td></tr><tr><td><code>entry.id</code> slug 提取用 regex，可能脆弱</td><td><code>news.astro</code>, <code>blog.astro</code></td><td>📋</td></tr><tr><td>ja.ts 殘留中文 / 語法問題</td><td><code>src/i18n/ja.ts</code></td><td>📋</td></tr><tr><td>產品圖片尚未上傳</td><td><code>public/images/products/</code></td><td>📋</td></tr></tbody></table>
+<br>
+</body></html>

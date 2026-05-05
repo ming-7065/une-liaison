@@ -1,0 +1,23 @@
+---
+import { companyInfo } from '../data/content';
+import { u, type Lang } from '../utils/url';
+
+interface Props {
+  lang: Lang;
+  t: {
+    footer: { privacy: string; terms: string; copyright: string };
+  };
+}
+
+const { lang, t } = Astro.props;
+---
+
+<footer class="bg-white border-t border-slate-100 text-slate-500 text-center py-6 mt-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-sm tracking-wide">{t.footer.copyright} &copy; {new Date().getFullYear()} {companyInfo.name}</p>
+    <div class="mt-3 flex justify-center space-x-6 text-xs">
+      <a href={u('/privacy-policy', lang)} class="hover:text-[var(--color-primary)] transition-colors">{t.footer.privacy}</a>
+      <a href={u('/terms-of-service', lang)} class="hover:text-[var(--color-primary)] transition-colors">{t.footer.terms}</a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,24 @@
+---
+title: "夏のマンゴーシーズン到来！"
+title_ja: "夏のマンゴーシーズン到来！"
+title_en: "Summer Mango Season is Coming!"
+date: 2026-03-01
+excerpt: "甘くてジューシーな台湾マンゴーの準備はできましたか？気温が上がるにつれ，今年のマンギーシーズンをお楽しみください。"
+excerpt_ja: "甘くてジューシーな台湾マンゴーの準備はできましたか？気温が上がるにつれ，今年のマンゴシーズンをお楽しみください。"
+excerpt_en: "Are you ready for sweet and juicy Taiwan mangoes? As temperatures rise, we expect a bountiful mango season this summer."
+emoji: 🥭
+image: /images/news/mango-season.jpg
+locale: ja
+---
+
+## マンゴー豊作予測
+
+農業試験所の予測によると，今年の夏将是芒果の豐收年。年始の雨水量申し分なく，花期気象が安定し，結果率が前年比15%向上しました。
+
+### 予約販売活動間もなく開始
+
+最も新鮮な愛文マンゴーをいち早く味わっていただくために，4月中旬より予約販売を開始する予定です。
+
+### 品質保証
+
+に出荷するすべてのマンゴーは厳選されており，甘さ16度以上が包装の基準です。コールドチェーン配送を採用しています。

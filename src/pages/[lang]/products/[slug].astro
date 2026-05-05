@@ -1,0 +1,74 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import { supportedLangs, getTranslations, type Lang } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+  return supportedLangs.flatMap(lang => {
+    const allProducts = [
+      { slug: 'taiwan-pineapple' },
+      { slug: 'taiwan-mango' },
+      { slug: 'aomori-apple' },
+      { slug: 'dragon-fruit' },
+    ];
+    return allProducts.map(item => ({ params: { lang, slug: item.slug }, props: { lang, slug: item.slug } }));
+  });
+}
+
+const lang = Astro.props.lang as Lang;
+const slug = Astro.params.slug as string;
+const t = getTranslations(lang);
+const lp = `/${lang}`;
+
+const allProducts = await getCollection('products');
+const entry = allProducts.find(e => e.id === `${slug}.${lang}` && e.data.locale === lang);
+
+const { Content } = entry ? await render(entry) : { Content: null };
+
+const title = entry?.data[`title_${lang}` as keyof typeof entry.data] ?? entry?.data.title ?? '';
+const description = entry?.data[`description_${lang}` as keyof typeof entry.data] ?? entry?.data.description ?? '';
+const features = entry?.data[`features_${lang}` as keyof typeof entry.data] ?? entry?.data.features ?? [];
+---
+
+<Layout title={`Une Liaison | ${title}`} lang={lang}>
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <a href={`${lp}/products`} class="inline-flex items-center text-[var(--color-primary)] hover:underline mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        {t.products.back_to_list}
+      </a>
+      <h1 class="text-5xl font-bold text-gray-800 mb-6">{title} {entry?.data.emoji}</h1>
+      <p class="text-xl text-gray-600 mb-8 leading-relaxed">{description}</p>
+
+      {entry?.data.image && (
+        <img src={entry.data.image} alt={title} class="w-full max-w-2xl mx-auto h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-lg" />
+      )}
+
+      <div class="grid md:grid-cols-2 gap-8 text-left mt-12">
+        <div class="card-glow bg-green-50 rounded-2xl p-6 shadow-md">
+          <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">{t.products.product_detail}</h2>
+          <p class="text-gray-700 leading-relaxed">{description}</p>
+        </div>
+        <div class="card-glow bg-orange-50 rounded-2xl p-6 shadow-md">
+          <h2 class="text-2xl font-bold text-[var(--color-primary)] mb-4">{t.products.cta}</h2>
+          <ul class="space-y-2">
+            {features.map((feature: string) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[var(--color-secondary)] text-lg">✔</span>
+                <span class="text-gray-700">{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {Content && (
+        <div class="prose prose-lg mx-auto text-gray-800 mt-16 text-left">
+          <Content />
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>

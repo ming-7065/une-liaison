@@ -1,0 +1,32 @@
+---
+title: "蜜りんご：台湾青森ふじりんごの清らかな甘さの伝説"
+title_ja: "蜜りんご：台湾青森ふじりんごの清らかな甘さの伝説"
+title_en: "Honey Apple: The Legend of Taiwan Aomori Fuji Apples"
+date: 2026-02-28
+excerpt: "青森ふじりんごはその独特な風味と歴史的伝説で好評を博しています。この文章では、りんごの栄養価値、保存方法、創作レシピをご紹介します。"
+excerpt_ja: "青森ふじりんごはその独特な風味と歴史的伝説で好評を博しています。この文章では、りんごの栄養価値、保存方法、創作レシピをご紹介します。"
+excerpt_en: "Aomori Fuji apples are highly regarded for their unique flavor and historical legend. This article reveals the nutritional value, storage methods, and creative recipes of Fuji apples."
+emoji: "🍎"
+image: /images/blog/fuji-apple.jpg
+locale: ja
+---
+
+## りんごの伝説：富士山下の甜蜜果實
+
+日本青森縣の富士山腳下，有一種蘋果承載著近百年的農業智慧與自然精華——這就是聞名全球的 Fuji 蘋果。
+
+### Fuji の由来
+
+Fuji 蘋果是1939年由日本東北農業試驗場培育成功的品種，透過國光（Jonathan）與元帥（Delicious）兩個品種雜交而成。結合了國光の甘度與元帥の清脆口感，造就了 Fuji 蘋果無與倫比的品质。
+
+### 「蜜りんご」の理由
+
+切开 Fuji 蘋果时，常可看到果肉中心呈现琥珀色的半透明糖心结构，这就是所谓的「蜜」。这是因为 Fuji 蘋果含有较高的山梨醇（sorbitol）成分，在国外被称为 honey core。这层蜜心让蘋果的甘度更加集中，风味更加浓郁。
+
+### 栄養と保存
+
+Fuji 蘋果富含膳食纖維、維生素C與多酚抗氧化物。保存时建议以报纸或保鲜膜個別包覆后冷藏。
+
+### 創作レシピ
+
+Fuji 蘋果の清脆口感適合直接鮮食，也適合製成蘋果派、蘋果果汁，或切片搭配起司做成简单的开胃小点。
