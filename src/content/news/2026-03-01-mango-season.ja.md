@@ -1,10 +1,10 @@
 ---
-title: "夏のマンゴーシーズン到来！"
+locale: zh
+title: 夏のマンゴーシーズン到来！
 date: 2026-03-01
-excerpt: "甘くてジューシーな台湾マンゴーの準備はできましたか？気温が上がるにつれ，今年のマンギーシーズンをお楽しみください。"
+excerpt: 甘くてジューシーな台湾マンゴーの準備はできましたか？気温が上がるにつれ，今年のマンギーシーズンをお楽しみください。
 emoji: 🥭
-image: /images/news/mango-season.jpg
-locale: ja
+image: /images/products/taiwan-mango.webp
 ---
 
 ## マンゴー豊作予測

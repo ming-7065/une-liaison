@@ -1,10 +1,10 @@
 ---
-title: "Summer Mango Season is Coming!"
+locale: zh
+title: Summer Mango Season is Coming!
 date: 2026-03-01
-excerpt: "Are you ready for sweet and juicy Taiwan mangoes? As temperatures rise, we expect a bountiful mango season this summer."
+excerpt: Are you ready for sweet and juicy Taiwan mangoes? As temperatures rise, we expect a bountiful mango season this summer.
 emoji: 🥭
-image: /images/news/mango-season.jpg
-locale: en
+image: /images/products/taiwan-mango.webp
 ---
 
 ## A Bountiful Mango Season Forecast

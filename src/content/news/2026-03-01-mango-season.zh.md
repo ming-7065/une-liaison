@@ -1,10 +1,10 @@
 ---
-title: "夏季芒果季即將來臨！"
-date: 2026-03-01
-excerpt: "準備好迎接香甜多汁的台灣芒果了嗎？隨著氣溫逐漸升高，我們預計今年夏季將迎來豐收的芒果季。敬請期待我們帶來的最新鮮芒果品種。"
-emoji: 🥭
-image: /images/news/mango-season.jpg
 locale: zh
+title: 夏季芒果季即將來臨！
+date: 2026-03-01
+excerpt: 準備好迎接香甜多汁的台灣芒果了嗎？隨著氣溫逐漸升高，我們預計今年夏季將迎來豐收的芒果季。敬請期待我們帶來的最新鮮芒果品種。
+emoji: 🥭
+image: /images/products/taiwan-mango.webp
 ---
 
 ## 芒果預測豐收年
