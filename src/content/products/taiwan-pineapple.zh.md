@@ -1,4 +1,5 @@
 ---
+locale: zh
 title: 台灣鳳梨
 emoji: 🍍
 description: 金鑽鳳梨，甜度高，果肉細緻，香氣濃郁。
@@ -6,8 +7,7 @@ features:
   - 香甜多汁
   - 纖維細緻
   - 產地直送
-image: /images/products/taiwan-pineapple.webp
-locale: zh
+image: /images/關廟鳳梨銷售004.jpg
 ---
 
 ## 台灣鳳梨：甜蜜的陽光滋味
