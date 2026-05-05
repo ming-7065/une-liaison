@@ -65,7 +65,7 @@ export const en = {
     become_title: 'Become Our Partner',
     become_text: 'If you are passionate about Taiwan fruits and want to explore broader markets with us, we sincerely invite you to join our network. Whether you are a farmer, logistics provider, distributor, or a company interested in agricultural innovation, we look forward to hearing from you.',
     contact_title: 'Contact Us',
-    contact_text: 'For more details about partnership, please reach us through the contact information below. Our team will get back to you promptly.',
+    contact_text: 'For more details about partnership, please contact us. Our team will get back to you promptly.',
   },
   news: {
     title: 'Latest News',
@@ -117,7 +117,7 @@ export const en = {
       { title: 'Information Sharing and Disclosure', text: 'We do not sell, rent, or trade your personal identity information to third parties. We may share your information in the following circumstances: With your consent, With our service providers who perform services on our behalf, To comply with legal obligations, To protect our rights, property, or safety.' },
       { title: 'Your Choices and Rights', text: 'You have the right to access, correct, or delete your personal information. You may also opt out of receiving our marketing communications. To exercise these rights, please contact us through the contact information provided on this website.' },
       { title: 'Policy Changes', text: 'We may update this privacy policy from time to time. Any changes will be posted on this page and become effective. We recommend that you regularly review this privacy policy to stay informed of the latest information.' },
-      { title: 'Contact Us', text: 'If you have any questions about this privacy policy, please contact us at openclaw7065@gmail.com.' },
+      { title: 'Contact Us', text: 'If you have any questions about this privacy policy, please contact us.' },
     ],
   },
   terms: {
@@ -130,7 +130,7 @@ export const en = {
       { title: '4. Disclaimer', text: 'Our services are provided on an "as is" and "as available" basis without any express or implied warranties. We make no representations or warranties about the accuracy, reliability, or completeness of the services.' },
       { title: '5. Limitation of Liability', text: 'In no event shall we or our affiliates, directors, employees, agents, suppliers, or licensors be liable for any direct, indirect, incidental, special, punitive, or consequential damages arising from your use of or inability to use our services, even if we have been advised of the possibility of such damages.' },
       { title: '6. Changes to Terms of Service', text: 'We reserve the right to modify or replace these Terms of Service at any time. If a change is material, we will provide at least 30 days\' notice prior to its effective date.' },
-      { title: '7. Contact Us', text: 'If you have any questions about these Terms of Service, please contact us at openclaw7065@gmail.com.' },
+      { title: '7. Contact Us', text: 'If you have any questions about these Terms of Service, please contact us.' },
     ],
   },
   footer: {
