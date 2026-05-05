@@ -1,24 +1,12 @@
 ---
 title: 台灣芒果
-title_ja: 台湾マンゴー
-title_en: Taiwan Mango
 emoji: 🥭
 description: 愛文芒果，果肉橙黃，香氣馥郁，口感滑順。
-description_ja: アوين芒果、果肉がオレンジ色で、香りが浓郁、舌触りが滑らかです。
-description_en: Irwin mango with orange-yellow flesh, rich fragrance, and smooth texture.
 features:
   - 香甜軟糯
   - 熱帶風味
   - 季節限定
-features_ja:
-  - 甘くて柔らかい
-  - トロピカル风味
-  - 季節限定
-features_en:
-  - Sweet & Tender
-  - Tropical Flavor
-  - Seasonal
-image: /images/products/taiwan-mango.jpg
+image: /images/products/taiwan-mango.webp
 locale: zh
 ---
 

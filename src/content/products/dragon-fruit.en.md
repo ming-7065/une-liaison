@@ -1,24 +1,12 @@
 ---
 title: Dragon Fruit
-title_ja: ドラゴンフルーツ
-title_en: Dragon Fruit
 emoji: 🐉
 description: Red-fleshed dragon fruit with moderate sweetness, refreshing taste, and rich dietary fiber.
-description_ja: 赤肉ドラゴンフルーツ、甘み适中、口触りがすがすがしく、食物繊維が豊富。
-description_en: Red-fleshed dragon fruit with moderate sweetness, refreshing taste, and rich dietary fiber.
 features:
   - Refreshing
   - Nutritious
   - Naturally Sweet
-features_ja:
-  - すがすがしい
-  - 栄養豊富
-  - 自然さな甘み
-features_en:
-  - Refreshing
-  - Nutritious
-  - Naturally Sweet
-image: /images/products/dragon-fruit.jpg
+image: /images/products/dragon-fruit.webp
 locale: en
 ---
 

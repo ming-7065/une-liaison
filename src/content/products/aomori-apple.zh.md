@@ -1,24 +1,12 @@
 ---
 title: 青森蘋果
-title_ja: 青森りんご
-title_en: Aomori Apple
 emoji: 🍎
 description: 來自日本青森的頂級富士蘋果，清脆多汁，甜度與酸度的完美平衡。
-description_ja: 日本青森からの最高級紅ロールりんご、しゃきっとジューシー、甘さと酸度の完璧なバランス。
-description_en: Premium Fuji apple from Aomori, Japan. Crisp, juicy, perfect balance of sweetness and acidity.
 features:
   - 清脆多汁
   - 酸甜平衡
   - 產地直送
-features_ja:
-  - しゃきっとジューシー
-  - 酸甜バランス
-  - 産地直送
-features_en:
-  - Crisp & Juicy
-  - Balanced Sweetness
-  - Direct from Farm
-image: /images/products/aomori-apple.jpg
+image: /images/products/aomori-apple.webp
 locale: zh
 ---
 

@@ -1,11 +1,7 @@
 ---
 title: "Dragon Fruit: The Tropical Wonder that Blooms at Night"
-title_ja: ドラゴンフルーツ：夜に花開く熱帯の奇果
-title_en: "Dragon Fruit: The Tropical Wonder that Blooms at Night"
 date: 2026-02-10
 excerpt: Dragon fruit is not only unique in appearance, but its rich nutritional content also makes it a popular choice for healthy diets. Learn the growing secrets and diverse ways to enjoy dragon fruit.
-excerpt_ja: ドラゴンフルーツはその独特な形だけでなく、豊富なりんこちん酸も含むため、健康的な食事としても人気の高い選択肢となっています。
-excerpt_en: Dragon fruit is not only unique in appearance, but its rich nutritional content also makes it a popular choice for healthy diets. Learn the growing secrets and diverse ways to enjoy dragon fruit.
 emoji: 🐉
 image: /images/blog/dragon-fruit.jpg
 locale: en

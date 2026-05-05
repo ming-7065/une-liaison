@@ -1,11 +1,7 @@
 ---
 title: 火龍果：夜間花開的熱帶奇果
-title_ja: ドラゴンフルーツ：夜に花開く熱帯の奇果
-title_en: "Dragon Fruit: The Tropical Wonder that Blooms at Night"
 date: 2026-02-10
 excerpt: 火龍果不僅外形獨特，其豐富的營養成分也使其成為健康飲食的熱門選擇。了解火龍果的種植奧秘和多樣化食用方法。
-excerpt_ja: ドラゴンフルーツはその独特な形だけでなく、豊富なりんこちん酸も含むため、健康的な食事としても人気の高い選択肢となっています。
-excerpt_en: "Dragon fruit is not only unique in appearance, but its rich nutritional content also makes it a popular choice for healthy diets. Learn the growing secrets and diverse ways to enjoy dragon fruit."
 emoji: 🐉
 image: /images/blog/dragon-fruit.jpg
 locale: zh

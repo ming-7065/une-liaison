@@ -1,11 +1,7 @@
 ---
 title: "加入我們的團隊：全球貿易專員招募中"
-title_ja: "チームに参加してください：グローバル貿易担当募集！"
-title_en: "Join Our Team: Global Trade Specialist Wanted!"
 date: 2026-02-20
 excerpt: "我們正在尋找對國際貿易充滿熱情的人才加入我們的團隊。如果您有相關經驗並樂於接受挑戰，歡迎查看我們的職位空缺。"
-excerpt_ja: "国際貿易に情熱を持つ人材募集。関連経験があり、挑戦が好きな方は、ぜひポジションをご確認ください。"
-excerpt_en: "We are looking for passionate talents in international trade to join our team. If you have relevant experience and enjoy challenges, we welcome you to check out our openings."
 emoji: "📦"
 image: /images/news/team-hiring.jpg
 locale: zh

@@ -1,24 +1,12 @@
 ---
 title: 火龍果
-title_ja: ドラゴンフルーツ
-title_en: Dragon Fruit
 emoji: 🐉
 description: 紅肉火龍果，甜度適中，口感清爽，富含膳食纖維。
-description_ja: 赤肉ドラゴンフルーツ、甘み适中、口触りがすがすがしく、食物繊維が豊富。
-description_en: Red-fleshed dragon fruit with moderate sweetness, refreshing taste, and rich dietary fiber.
 features:
   - 清爽解渴
   - 營養豐富
   - 自然甜美
-features_ja:
-  - すがすがしい
-  - 栄養豊富
-  - 自然さな甘み
-features_en:
-  - Refreshing
-  - Nutritious
-  - Naturally Sweet
-image: /images/products/dragon-fruit.jpg
+image: /images/products/dragon-fruit.webp
 locale: zh
 ---
 

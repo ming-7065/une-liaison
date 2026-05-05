@@ -22,9 +22,9 @@ const entry = allProducts.find(e => e.id === `${slug}${lang}` && e.data.locale =
 
 const { Content } = entry ? await render(entry) : { Content: null };
 
-const title = entry?.data[`title_${lang}` as keyof typeof entry.data] ?? entry?.data.title ?? '';
-const description = entry?.data[`description_${lang}` as keyof typeof entry.data] ?? entry?.data.description ?? '';
-const features = entry?.data[`features_${lang}` as keyof typeof entry.data] ?? entry?.data.features ?? [];
+const title = entry?.data.title ?? '';
+const description = entry?.data.description ?? '';
+const features = entry?.data.features ?? [];
 ---
 
 <Layout title={`Une Liaison | ${title}`} lang={lang}>

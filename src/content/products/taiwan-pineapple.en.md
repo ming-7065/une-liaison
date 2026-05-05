@@ -1,25 +1,13 @@
 ---
-locale: zh
 title: Taiwan Pineapple
-title_ja: 台湾パイナップル
-title_en: Taiwan Pineapple
 emoji: 🍍
 description: Jinzuan pineapple with high sweetness, tender flesh, and rich aroma.
-description_ja: 金鑽パイナップル、甘みが高く、果肉が細かく、香りが浓郁です。
-description_en: Jinzuan pineapple with high sweetness, tender flesh, and rich aroma.
 features:
   - Sweet & Juicy
   - Fine Texture
   - Direct from Farm
-features_ja:
-  - 甘くてジューシー
-  - 繊維が細い
-  - 産地直送
-features_en:
-  - Sweet & Juicy
-  - Fine Texture
-  - Direct from Farm
-image: /images/關廟鳳梨銷售004.jpg
+image: /images/products/taiwan-pineapple.webp
+locale: en
 ---
 
 ## Taiwan Pineapple: The Sweet Taste of Sunshine

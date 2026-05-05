@@ -1,11 +1,7 @@
 ---
 title: "夏季芒果季即將來臨！"
-title_ja: "夏のマンゴーシーズン到来！"
-title_en: "Summer Mango Season is Coming!"
 date: 2026-03-01
 excerpt: "準備好迎接香甜多汁的台灣芒果了嗎？隨著氣溫逐漸升高，我們預計今年夏季將迎來豐收的芒果季。敬請期待我們帶來的最新鮮芒果品種。"
-excerpt_ja: "甘くてジューシーな台湾マンゴーの準備はできましたか？気温が上がるにつれ、今年のマンゴーシーズンをお楽しみください。"
-excerpt_en: "Are you ready for sweet and juicy Taiwan mangoes? As temperatures rise, we expect a bountiful mango season this summer."
 emoji: 🥭
 image: /images/news/mango-season.jpg
 locale: zh

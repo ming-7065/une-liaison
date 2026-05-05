@@ -1,11 +1,7 @@
 ---
 title: "夏の宝物：台湾アーウィンマンゴーの究極の誘惑"
-title_ja: "夏の宝物：台湾アーウィンマンゴーの究極の誘惑"
-title_en: "Summer's Treasure: The Ultimate Temptation of Taiwan Irwin Mango"
 date: 2026-03-10
 excerpt: "アウィン芒果は台湾の夏の代表的水果です。その繊細な果肉、豊かな香り、甘い味は忘れられません。"
-excerpt_ja: "アウィン芒果は台湾の夏の代表的水果です。その繊細な果肉、豊かな香り、甘い味は忘れられません。"
-excerpt_en: "Irwin mango is the representative fruit of Taiwan's summer. Its tender flesh, rich fragrance, and sweet taste are unforgettable."
 emoji: 🥭
 image: /images/blog/mango-irwin.jpg
 locale: ja

@@ -1,11 +1,7 @@
 ---
 title: "台灣鳳梨出口再創新高！"
-title_ja: "台湾パイナップルの輸出が過去最高を更新！"
-title_en: "Taiwan Pineapple Exports Hit New Record!"
 date: 2026-03-15
 excerpt: "我們很高興地宣布，今年台灣鳳梨的出口量再次突破紀錄，感謝全球消費者對台灣高品質水果的熱愛與支持。我們將持續與在地果農合作，確保每一顆鳳梨都擁有最完美的風味。"
-excerpt_ja: "台湾パイナップルの輸出量が今年も記録を更新。世界中の消費者の台湾高品質果物へのご支持に感謝します。"
-excerpt_en: "We are thrilled to announce that Taiwan pineapple exports have broken records again this year. Thanks to global consumers' love for Taiwan's high-quality fruits."
 emoji: 🍍
 image: /images/news/pineapple-record.jpg
 locale: zh

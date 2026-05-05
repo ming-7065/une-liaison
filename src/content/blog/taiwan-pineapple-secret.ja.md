@@ -1,11 +1,7 @@
 ---
 title: "台湾パイナップル：甘さと香りの秘密"
-title_ja: "台湾パイナップル：甘さと香りの秘密"
-title_en: "Taiwan Pineapple: The Secret of Sweetness and Aroma"
 date: 2026-03-20
 excerpt: "台湾パイナップルは其独有的ジンツァンの風味で世界中に知られています。この文章では、パイナップルの品種の特色、最良の食べ方、健康への効果をご紹介します。"
-excerpt_ja: "台湾パイナップルは其独有的ジンツァンの風味で世界中に知られています。この文章では、パイナップルの品種の特色、最良の食べ方、健康への効果をご紹介します。"
-excerpt_en: "Taiwan pineapple is renowned worldwide for its unique Jinzuan flavor. This article takes you through the characteristics of different pineapple varieties, the best ways to enjoy them, and the health benefits of pineapple."
 emoji: 🍍
 image: /images/blog/pineapple-secret.jpg
 locale: ja

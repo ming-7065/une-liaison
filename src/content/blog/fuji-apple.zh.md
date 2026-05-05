@@ -1,11 +1,7 @@
 ---
 title: "蜜蘋果：台灣富士青森蘋果的清甜傳說"
-title_ja: "蜜りんご：台湾青森ふじりんごの清らかな甘さの伝説"
-title_en: "Honey Apple: The Legend of Taiwan Aomori Fuji Apples"
 date: 2026-02-28
 excerpt: "富士青森蘋果因其獨特的風味和歷史傳說而備受推崇。本文將揭示富士的營養價值、如何保存和創意食譜。"
-excerpt_ja: "青森ふじりんごはその独特な風味と歴史的伝説で好評を博しています。この文章では、りんごの栄養価値、保存方法、創作レシピをご紹介します。"
-excerpt_en: "Aomori Fuji apples are highly regarded for their unique flavor and historical legend. This article reveals the nutritional value, storage methods, and creative recipes of Fuji apples."
 emoji: "🍎"
 image: /images/blog/fuji-apple.jpg
 locale: zh

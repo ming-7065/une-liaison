@@ -24,9 +24,9 @@ const products = allProducts.filter(e => e.data.locale === lang);
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((entry) => {
-          const title = entry.data[`title_${lang}` as keyof typeof entry.data] ?? entry.data.title;
-          const description = entry.data[`description_${lang}` as keyof typeof entry.data] ?? entry.data.description;
-          const features = entry.data[`features_${lang}` as keyof typeof entry.data] ?? entry.data.features;
+           const title = entry.data.title;
+           const description = entry.data.description;
+           const features = entry.data.features;
           return (
              <a href={`${lp}/products/${entry.id.replace(/(zh|ja|en)$/, '')}`}
                 class="card-glow bg-white rounded-3xl p-6 shadow-lg transition-all duration-300 group block">

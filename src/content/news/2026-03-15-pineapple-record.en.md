@@ -1,11 +1,7 @@
 ---
 title: "Taiwan Pineapple Exports Hit New Record!"
-title_ja: "台湾パイナップルの輸出が過去最高を更新！"
-title_en: "Taiwan Pineapple Exports Hit New Record!"
 date: 2026-03-15
 excerpt: "We are thrilled to announce that Taiwan pineapple exports have broken records again this year. Thanks to global consumers' love for Taiwan's high-quality fruits."
-excerpt_ja: "台湾パイナップルの輸出量が今年も記録を更新。世界中の消費者の台湾高品質果物へのご支持に感謝します。"
-excerpt_en: "We are thrilled to announce that Taiwan pineapple exports have broken records again this year. Thanks to global consumers' love for Taiwan's high-quality fruits."
 emoji: 🍍
 image: /images/news/pineapple-record.jpg
 locale: en
