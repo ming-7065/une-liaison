@@ -1,10 +1,10 @@
 ---
-title: "Join Our Team: Global Trade Specialist Wanted!"
+locale: zh
+title: 'Join Our Team: Global Trade Specialist Wanted!'
 date: 2026-02-20
-excerpt: "We are looking for passionate talents in international trade to join our team. If you have relevant experience and enjoy challenges, we welcome you to check out our openings."
-emoji: "📦"
-image: /images/news/team-hiring.jpg
-locale: en
+excerpt: We are looking for passionate talents in international trade to join our team. If you have relevant experience and enjoy challenges, we welcome you to check out our openings.
+emoji: 📦
+image: /images/products/aomori-apple.webp
 ---
 
 ## Looking for Someone Passionate About Fruit

@@ -1,10 +1,10 @@
 ---
-title: "加入我們的團隊：全球貿易專員招募中"
-date: 2026-02-20
-excerpt: "我們正在尋找對國際貿易充滿熱情的人才加入我們的團隊。如果您有相關經驗並樂於接受挑戰，歡迎查看我們的職位空缺。"
-emoji: "📦"
-image: /images/news/team-hiring.jpg
 locale: zh
+title: 加入我們的團隊：全球貿易專員招募中
+date: 2026-02-20
+excerpt: 我們正在尋找對國際貿易充滿熱情的人才加入我們的團隊。如果您有相關經驗並樂於接受挑戰，歡迎查看我們的職位空缺。
+emoji: 📦
+image: /images/products/aomori-apple.webp
 ---
 
 ## 寻找對水果充滿熱情的您

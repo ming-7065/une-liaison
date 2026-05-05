@@ -1,10 +1,10 @@
 ---
-title: "チームに参加してください：グローバル貿易担当募集！"
+locale: zh
+title: チームに参加してください：グローバル貿易担当募集！
 date: 2026-02-20
-excerpt: "国際貿易に情熱を持つ人材募集。関連経験があり、挑戦が好きな方は、ぜひポジションをご確認ください。"
-emoji: "📦"
-image: /images/news/team-hiring.jpg
-locale: ja
+excerpt: 国際貿易に情熱を持つ人材募集。関連経験があり、挑戦が好きな方は、ぜひポジションをご確認ください。
+emoji: 📦
+image: /images/products/aomori-apple.webp
 ---
 
 ## 果物に情熱を持つあなたを求めています
