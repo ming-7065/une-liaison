@@ -3,15 +3,12 @@ import Layout from '../../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { supportedLangs, getTranslations, type Lang } from '../../../i18n/utils';
 
-export function getStaticPaths() {
-  return supportedLangs.flatMap(lang => {
-    const allProducts = [
-      { slug: 'taiwan-pineapple' },
-      { slug: 'taiwan-mango' },
-      { slug: 'aomori-apple' },
-      { slug: 'dragon-fruit' },
-    ];
-    return allProducts.map(item => ({ params: { lang, slug: item.slug }, props: { lang, slug: item.slug } }));
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+  return allProducts.map(entry => {
+    const slug = entry.id.replace(/(zh|ja|en)$/, '');
+    const lang = entry.data.locale;
+    return { params: { lang, slug }, props: { lang, slug } };
   });
 }
 

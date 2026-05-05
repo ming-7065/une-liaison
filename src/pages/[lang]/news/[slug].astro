@@ -3,14 +3,12 @@ import Layout from '../../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 import { supportedLangs, getTranslations, type Lang } from '../../../i18n/utils';
 
-export function getStaticPaths() {
-  return supportedLangs.flatMap(lang => {
-    const allNews = [
-      { slug: '2026-03-15-pineapple-record' },
-      { slug: '2026-03-01-mango-season' },
-      { slug: '2026-02-20-team-hiring' },
-    ];
-    return allNews.map(item => ({ params: { lang, slug: item.slug }, props: { lang, slug: item.slug } }));
+export async function getStaticPaths() {
+  const allNews = await getCollection('news');
+  return allNews.map(entry => {
+    const slug = entry.id.replace(/(zh|ja|en)$/, '');
+    const lang = entry.data.locale;
+    return { params: { lang, slug }, props: { lang, slug } };
   });
 }
 
