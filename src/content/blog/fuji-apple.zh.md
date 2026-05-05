@@ -1,10 +1,10 @@
 ---
-title: "蜜蘋果：台灣富士青森蘋果的清甜傳說"
-date: 2026-02-28
-excerpt: "富士青森蘋果因其獨特的風味和歷史傳說而備受推崇。本文將揭示富士的營養價值、如何保存和創意食譜。"
-emoji: "🍎"
-image: /images/blog/fuji-apple.jpg
 locale: zh
+title: 蜜蘋果：台灣富士青森蘋果的清甜傳說
+date: 2026-02-28
+excerpt: 富士青森蘋果因其獨特的風味和歷史傳說而備受推崇。本文將揭示富士的營養價值、如何保存和創意食譜。
+emoji: 🍎
+image: /images/products/aomori-apple.webp
 ---
 
 ## 蘋果中的傳奇：富士山下的甜蜜果實

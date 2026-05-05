@@ -1,10 +1,10 @@
 ---
-title: "Honey Apple: The Legend of Taiwan Aomori Fuji Apples"
+locale: zh
+title: 'Honey Apple: The Legend of Taiwan Aomori Fuji Apples'
 date: 2026-02-28
-excerpt: "Aomori Fuji apples are highly regarded for their unique flavor and historical legend. This article reveals the nutritional value, storage methods, and creative recipes of Fuji apples."
-emoji: "🍎"
-image: /images/blog/fuji-apple.jpg
-locale: en
+excerpt: Aomori Fuji apples are highly regarded for their unique flavor and historical legend. This article reveals the nutritional value, storage methods, and creative recipes of Fuji apples.
+emoji: 🍎
+image: /images/products/aomori-apple.webp
 ---
 
 ## The Legendary Fruit from the Foot of Mt. Fuji
