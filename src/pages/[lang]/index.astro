@@ -62,7 +62,7 @@ const products = allProducts
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((entry) => {
-          const slug = entry.id.replace(/\.(zh|ja|en)$/, '');
+          const slug = entry.id.replace(/\.(zh|ja|en)\.md$/, '');
           const features = entry.data.features || [];
           return (
             <a href={`${lp}/products/${slug}`}

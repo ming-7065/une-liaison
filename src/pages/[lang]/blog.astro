@@ -17,7 +17,7 @@ const blogPosts = allBlog
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 function getSlug(id: string): string {
-  return id.replace(/\.(zh|ja|en)$/, '');
+  return id.replace(/\.(zh|ja|en)\.md$/, '');
 }
 ---
 
