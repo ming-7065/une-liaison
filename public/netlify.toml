@@ -1,3 +1,8 @@
 [build]
   command = "npm run build"
   publish = "dist"
+
+[[headers]]
+  for = "/admin/config.yml"
+  [headers.values]
+    Content-Type = "application/yaml"
