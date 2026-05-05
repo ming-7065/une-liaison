@@ -493,6 +493,48 @@ git push → Netlify 偵測 push → npm run build → 自動部署到 CDN
 
 ---
 
+## Phase 10：CMS 後台修復
+
+### 任務
+
+解決線上 CMS `/admin/` 報錯「The configuration file could not be parsed」。
+
+### 最終做法
+
+問題不在 config.yml 內容、不在 HTTP header、不在部署設定，而在 `public/admin/index.html` 的 `<link>` 標籤**漏了 `type` 屬性**。
+
+```html
+<!-- 錯誤 —— 缺少 type，Sveltia CMS 讀到空字串，判定「不是有效檔案類型」-->
+<link rel="cms-config-url" href="/admin/config.yml">
+
+<!-- 正確 —— 明確指定 yaml 類型 -->
+<link rel="cms-config-url" href="/admin/config.yml" type="text/yaml">
+```
+
+Sveltia CMS 判定 config 類型的機制：
+1. 讀取 `<link rel="cms-config-url">` 的 `type` 屬性
+2. **沒有 `type`** → HTMLLinkElement 回傳空字串 `""`，不在支援清單內 → 拋出 `not a valid file type`
+3. Sveltia CMS **不讀 HTTP Content-Type header**
+
+本機開發不會遇到此問題，因為本機走 File System Access API，不經過 `<link>` 標籤。
+
+### 關鍵教訓
+
+| 教訓 | 說明 |
+|---|---|
+| 先讀源碼再動手 | 遇到第三方套件錯誤，第一步是讀源碼找錯誤訊息的觸發條件，不是猜 |
+| 有參考站就逐項 diff | travel.minglab.tw 運作正常，應逐項比對兩站的每一個差異 |
+| 測試要對應場景 | CMS 是瀏覽器端 JS，`curl` 測 header 不算測試。本機 `npm run dev` + 瀏覽器才是真正的測試 |
+| 錯誤訊息逐字解讀 | "not a valid file type" 指的是 HTML `type` 屬性，不是 content 也不是 HTTP header |
+
+### 關鍵檔案
+
+| 檔案 | 變更 |
+|---|---|
+| `public/admin/index.html` | ✅ 補上 `type="text/yaml"` |
+
+---
+
 ## 成功模式總結
 
 ### 人機協作流程
@@ -529,6 +571,7 @@ AI 修正
 |---|---|
 | CMS backend | `backend: github`（寫入 repo，自動觸發 rebuild） |
 | CMS 入口 | `public/admin/index.html`（靜態檔案，繞過 Astro build tool） |
+| CMS config link | `<link rel="cms-config-url" href="/admin/config.yml" type="text/yaml">`，**`type` 不可省略** |
 | Astro v6 render | `import { render } from 'astro:content'; await render(entry)` |
 | Content Collection config | `src/content.config.ts`（Astro v6 根目錄位置） |
 | CMS script 載入 | `type="module"` + CDN URL，在 static HTML 中保留原樣 |

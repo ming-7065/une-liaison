@@ -1,11 +1,95 @@
 <!doctype html>
-<html>
+<html lang="zh-TW">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="cms-config-url" href="/admin/config.yml" type="text/yaml">
-  <title>Sveltia CMS</title>
+  <title>後台管理 | Une Liaison</title>
+  <style>
+    .admin-btns {
+      position: fixed;
+      bottom: 12px;
+      right: 4px;
+      z-index: 9998;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .admin-btns a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(24, 24, 27, 0.75);
+      backdrop-filter: blur(10px);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s, background 0.2s;
+    }
+    .admin-btns a:hover {
+      color: #E8A87C;
+      background: rgba(24, 24, 27, 0.9);
+    }
+  </style>
 </head>
 <body>
-  <p>Loading...</p>
+  <div class="admin-btns">
+    <a href="/admin-guide/" title="使用說明">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    </a>
+    <a href="/" title="返回網站">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </a>
+  </div>
+  <script>
+  /* 瀏覽器端自動壓縮 — 上傳 >1MB 圖片時自動縮小，客戶零感知 */
+  (function () {
+    function compressImage(file) {
+      return new Promise(function (resolve) {
+        if (!file.type.match(/^image\/(jpeg|png|webp)$/)) return resolve(file);
+        if (file.size < 1024 * 1024) return resolve(file);
+        var img = new Image();
+        var url = URL.createObjectURL(file);
+        img.onload = function () {
+          URL.revokeObjectURL(url);
+          var w = img.width, h = img.height;
+          if (w > 1920) { h = Math.round(h * 1920 / w); w = 1920; }
+          var canvas = document.createElement('canvas');
+          canvas.width = w; canvas.height = h;
+          var ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, w, h);
+          canvas.toBlob(function (blob) {
+            resolve(new File([blob], file.name, { type: file.type }));
+          }, file.type, 0.8);
+        };
+        img.onerror = function () { resolve(file); };
+        img.src = url;
+      });
+    }
+    var observer = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        m.addedNodes.forEach(function (node) {
+          if (node.nodeType === 1 && node.tagName === 'INPUT' && node.type === 'file') {
+            node.addEventListener('change', function () {
+              var self = this;
+              var files = Array.from(self.files || []);
+              if (!files.length) return;
+              Promise.all(files.map(compressImage)).then(function (compressed) {
+                var dt = new DataTransfer();
+                compressed.forEach(function (f) { dt.items.add(f); });
+                self.files = dt.files;
+              });
+            }, true);
+          }
+        });
+      });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  })();
+  </script>
   <script type="module" src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>

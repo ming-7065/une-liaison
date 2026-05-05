@@ -18,7 +18,7 @@ features_en:
   - Refreshing
   - Nutritious
   - Naturally Sweet
-image: /images/products/dragon-fruit.svg
+image: /images/products/dragon-fruit.jpg
 locale: zh
 ---
 

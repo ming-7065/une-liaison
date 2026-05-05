@@ -18,7 +18,7 @@ features_en:
   - Sweet & Juicy
   - Fine Texture
   - Direct from Farm
-image: /images/products/taiwan-pineapple.svg
+image: /images/products/taiwan-pineapple.jpg
 locale: zh
 ---
 

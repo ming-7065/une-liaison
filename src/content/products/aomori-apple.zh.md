@@ -18,7 +18,7 @@ features_en:
   - Crisp & Juicy
   - Balanced Sweetness
   - Direct from Farm
-image: /images/products/aomori-apple.svg
+image: /images/products/aomori-apple.jpg
 locale: zh
 ---
 

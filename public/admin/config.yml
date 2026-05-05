@@ -23,6 +23,8 @@ collections:
     create: true
     i18n: true
     slug: '{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
     fields:
       - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
       - { name: title, label: 標題, widget: string, i18n: true }
@@ -45,6 +47,8 @@ collections:
     create: true
     i18n: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
     fields:
       - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
       - { name: title, label: 標題, widget: string, i18n: true }
@@ -65,6 +69,8 @@ collections:
     create: true
     i18n: true
     slug: '{{slug}}'
+    extension: 'md'
+    format: 'frontmatter'
     fields:
       - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
       - { name: title, label: 標題, widget: string, i18n: true }

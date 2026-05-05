@@ -18,7 +18,7 @@ features_en:
   - Sweet & Tender
   - Tropical Flavor
   - Seasonal
-image: /images/products/taiwan-mango.svg
+image: /images/products/taiwan-mango.jpg
 locale: zh
 ---
 

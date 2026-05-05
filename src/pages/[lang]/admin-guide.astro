@@ -1,0 +1,191 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { supportedLangs } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({ params: { lang } }));
+}
+---
+
+<Layout title="Une Liaison | 後台使用說明" lang="zh">
+  <section class="py-24 bg-white min-h-screen w-full">
+    <div class="max-w-4xl mx-auto px-4">
+      <h1 class="text-5xl font-bold text-gray-800 mb-6 text-center">後台使用說明</h1>
+      <p class="text-xl text-gray-600 leading-relaxed mb-8 text-center">
+        Une Liaison 內容管理後台（Sveltia CMS）完整操作指南
+      </p>
+
+      <div class="prose prose-lg mx-auto text-gray-800 space-y-12">
+        <!-- 登入方式 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">🔑</span> 登入方式
+          </h2>
+          <div class="bg-green-50 rounded-2xl p-6 shadow-md">
+            <p class="font-semibold mb-2">Token 登入（推薦）</p>
+            <ol class="list-decimal list-inside space-y-2">
+              <li>開啟 <a href="/admin/" class="text-[var(--color-primary)] hover:underline">/admin/</a></li>
+              <li>點選「Token」按鈕</li>
+              <li>貼上您的 GitHub Personal Access Token</li>
+              <li>登入後即可開始編輯內容</li>
+            </ol>
+            <p class="text-sm text-gray-500 mt-3">首次登入後，瀏覽器會記住 Token，下次直接進入後台。</p>
+          </div>
+        </div>
+
+        <!-- 圖片上傳 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">📸</span> 圖片上傳
+          </h2>
+          <div class="bg-orange-50 rounded-2xl p-6 shadow-md">
+            <p class="mb-2">✅ <strong>自動壓縮功能已啟用</strong></p>
+            <p>上傳圖片時，瀏覽器會自動壓縮大於 1MB 的照片：</p>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+              <li>圖片寬度超過 1920px → 自動縮小至 1920px</li>
+              <li>自動壓縮品質至 80%</li>
+              <li>原圖 8MB → 壓縮後約 500KB</li>
+            </ul>
+            <p class="text-sm text-gray-500 mt-3">您不需要事先壓縮圖片，直接選擇照片上傳即可。</p>
+          </div>
+        </div>
+
+        <!-- 台灣水果管理 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">🍎</span> 台灣水果管理
+          </h2>
+          <p class="mb-4">在「台灣水果」Collection 中，您可以管理產品資訊：</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">新增水果</h3>
+              <p class="text-gray-600">點「新增水果」→ 填寫標題、簡介、特色 → 上傳產品圖 → 儲存</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">編輯水果</h3>
+              <p class="text-gray-600">點選現有水果 → 修改內容 → 儲存</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-gray-50 rounded-xl p-4">
+            <p class="font-semibold mb-2">欄位說明：</p>
+            <ul class="list-disc list-inside space-y-1 text-gray-600">
+              <li><strong>標題</strong>：中文、日文、英文三語標題</li>
+              <li><strong>Emoji</strong>：水果表情符號（如 🍎、🥭）</li>
+              <li><strong>簡介</strong>：產品簡短描述</li>
+              <li><strong>特色</strong>：產品特色列表（如「香甜多汁」）</li>
+              <li><strong>產品圖片</strong>：建議上傳 1920px 寬的 JPG/PNG</li>
+              <li><strong>詳細介紹</strong>：支援 Markdown 格式</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 最新消息管理 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">📰</span> 最新消息管理
+          </h2>
+          <p class="mb-4">在「最新消息」Collection 中管理新聞動態：</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">新增消息</h3>
+              <p class="text-gray-600">點「新增消息」→ 填寫日期、標題、摘要 → 儲存</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">編輯消息</h3>
+              <p class="text-gray-600">點選現有消息 → 修改內容 → 儲存</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-gray-50 rounded-xl p-4">
+            <p class="font-semibold mb-2">欄位說明：</p>
+            <ul class="list-disc list-inside space-y-1 text-gray-600">
+              <li><strong>日期</strong>：發布日期</li>
+              <li><strong>標題</strong>：中文、日文、英文三語標題</li>
+              <li><strong>摘要</strong>：新聞摘要（顯示在列表頁）</li>
+              <li><strong>封面圖片</strong>：新聞封面圖（可選）</li>
+              <li><strong>內文</strong>：完整新聞內容，支援 Markdown</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 部落格管理 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">📝</span> 部落格管理
+          </h2>
+          <p class="mb-4">在「部落格」Collection 中管理文章：</p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">新增文章</h3>
+              <p class="text-gray-600">點「新增文章」→ 填寫日期、標題、摘要 → 撰寫內文 → 儲存</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-lg mb-2">編輯文章</h3>
+              <p class="text-gray-600">點選現有文章 → 修改內容 → 儲存</p>
+            </div>
+          </div>
+          <div class="mt-4 bg-gray-50 rounded-xl p-4">
+            <p class="font-semibold mb-2">欄位說明：</p>
+            <ul class="list-disc list-inside space-y-1 text-gray-600">
+              <li><strong>日期</strong>：發布日期</li>
+              <li><strong>標題</strong>：中文、日文、英文三語標題</li>
+              <li><strong>摘要</strong>：文章摘要（顯示在列表頁）</li>
+              <li><strong>封面圖片</strong>：文章封面圖（可選）</li>
+              <li><strong>內文</strong>：完整文章內容，支援 Markdown</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Markdown 語法 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">✍️</span> Markdown 語法說明
+          </h2>
+          <div class="bg-gray-50 rounded-xl p-6">
+            <p class="mb-4">詳細介紹與內文欄位支援 Markdown 格式：</p>
+            <div class="grid md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <p class="font-semibold mb-1">標題</p>
+                <code class="bg-white px-2 py-1 rounded"># 大標題<br>## 副標題<br>### 小標題</code>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">粗體 / 斜體</p>
+                <code class="bg-white px-2 py-1 rounded">**粗體**<br>*斜體*</code>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">連結</p>
+                <code class="bg-white px-2 py-1 rounded">[文字](網址)</code>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">清單</p>
+                <code class="bg-white px-2 py-1 rounded">- 項目一<br>- 項目二<br>- 項目三</code>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">引用</p>
+                <code class="bg-white px-2 py-1 rounded">> 引用文字</code>
+              </div>
+              <div>
+                <p class="font-semibold mb-1">分隔線</p>
+                <code class="bg-white px-2 py-1 rounded">---</code>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 重要提醒 -->
+        <div>
+          <h2 class="text-3xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+            <span class="text-[var(--color-primary)]">⚠️</span> 重要提醒
+          </h2>
+          <div class="bg-yellow-50 rounded-2xl p-6 shadow-md border-l-4 border-yellow-400">
+            <ul class="list-disc list-inside space-y-2">
+              <li>儲存後會自動上傳到 GitHub，Netlify 會在 1-2 分鐘內自動重新部署</li>
+              <li>編輯時建議先在「工作區」預覽，確認無誤後再儲存</li>
+              <li>三語內容請分別填寫中文、日文、英文欄位，確保各語言版本同步</li>
+              <li>圖片上傳後會自動壓縮，不需要事先處理</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
