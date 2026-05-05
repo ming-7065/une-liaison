@@ -1,5 +1,5 @@
 ---
-locale: zh
+locale: ja
 title: 台湾パイナップル
 emoji: 🍍
 description: 金鑽パイナップル、甘みが高く、果肉が細かく、香りが浓郁です。
@@ -7,7 +7,7 @@ features:
   - 甘くてジューシー
   - 繊維が細い
   - 産地直送
-image: /images/關廟鳳梨銷售004.jpg
+image: /images/products/taiwan-pineapple.webp
 ---
 
 ## 台湾パイナップル：甘い陽光の滋味

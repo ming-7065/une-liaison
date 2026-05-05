@@ -7,7 +7,7 @@ features:
   - 香甜多汁
   - 纖維細緻
   - 產地直送
-image: /images/關廟鳳梨銷售004.jpg
+image: /images/products/taiwan-pineapple.webp
 ---
 
 ## 台灣鳳梨：甜蜜的陽光滋味

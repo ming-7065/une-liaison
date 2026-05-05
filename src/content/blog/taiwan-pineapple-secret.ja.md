@@ -4,7 +4,7 @@ title: 台湾パイナップル：甘さと香りの秘密
 date: 2026-03-20
 excerpt: 台湾パイナップルは其独有的ジンツァンの風味で世界中に知られています。この文章では、パイナップルの品種の特色、最良の食べ方、健康への効果をご紹介します。
 emoji: 🍍
-image: /images/關廟鳳梨銷售004.jpg
+image: /images/products/taiwan-pineapple.webp
 ---
 
 ## 金鑽鳳梨的秘密
