@@ -65,9 +65,14 @@ const products = allProducts
           const slug = entry.id.replace(/(zh|ja|en)$/, '');
           const features = entry.data.features || [];
           return (
-            <a href={`${lp}/products/${slug}`}
-               class="card-glow bg-white data-[palette=harvest-dark]:bg-gray-800 rounded-3xl p-6 shadow-lg transition-all duration-300 group block">
-              <div class="text-6xl mb-4 group-hover:scale-110 transition-transform text-center">{entry.data.emoji}</div>
+             <a href={`${lp}/products/${slug}`}
+                class="card-glow bg-white data-[palette=harvest-dark]:bg-gray-800 rounded-3xl p-6 shadow-lg transition-all duration-300 group block">
+              {entry.data.image && (
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+                  <img src={entry.data.image} alt={entry.data.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                </div>
+              )}
+              <div class="text-4xl mb-2 group-hover:scale-110 transition-transform text-center">{entry.data.emoji}</div>
               <h3 class="text-xl font-bold text-gray-800 data-[palette=harvest-dark]:text-white mb-2 text-center">{entry.data.title}</h3>
               <p class="text-gray-600 data-[palette=harvest-dark]:text-gray-200 text-sm mb-4 leading-relaxed text-center">{entry.data.description}</p>
               <div class="flex flex-wrap gap-2 justify-center">

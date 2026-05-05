@@ -28,9 +28,14 @@ const products = allProducts.filter(e => e.data.locale === lang);
           const description = entry.data[`description_${lang}` as keyof typeof entry.data] ?? entry.data.description;
           const features = entry.data[`features_${lang}` as keyof typeof entry.data] ?? entry.data.features;
           return (
-            <a href={`${lp}/products/${entry.id.replace(/(zh|ja|en)$/, '')}`}
-               class="card-glow bg-white rounded-3xl p-6 shadow-lg transition-all duration-300 group block">
-              <div class="text-6xl mb-4 group-hover:scale-110 transition-transform text-center">{entry.data.emoji}</div>
+             <a href={`${lp}/products/${entry.id.replace(/(zh|ja|en)$/, '')}`}
+                class="card-glow bg-white rounded-3xl p-6 shadow-lg transition-all duration-300 group block">
+              {entry.data.image && (
+                <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-4">
+                  <img src={entry.data.image} alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                </div>
+              )}
+              <div class="text-4xl mb-2 group-hover:scale-110 transition-transform text-center">{entry.data.emoji}</div>
               <h3 class="text-xl font-bold text-gray-800 mb-2 text-center">{title}</h3>
               <p class="text-gray-600 text-sm mb-4 leading-relaxed text-center">{description}</p>
               <div class="flex flex-wrap gap-2 justify-center">

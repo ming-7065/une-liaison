@@ -40,7 +40,9 @@ const features = entry?.data[`features_${lang}` as keyof typeof entry.data] ?? e
       <p class="text-xl text-gray-600 mb-8 leading-relaxed">{description}</p>
 
       {entry?.data.image && (
-        <img src={entry.data.image} alt={title} class="w-full max-w-2xl mx-auto h-64 md:h-96 object-cover rounded-2xl mb-12 shadow-lg" />
+        <div class="w-full max-w-2xl mx-auto aspect-[4/3] rounded-2xl overflow-hidden mb-12 shadow-lg">
+          <img src={entry.data.image} alt={title} class="w-full h-full object-cover" />
+        </div>
       )}
 
       <div class="grid md:grid-cols-2 gap-8 text-left mt-12">
