@@ -1,10 +1,10 @@
 ---
-title: "台灣鳳梨：甜度與香氣的秘密"
-date: 2026-03-20
-excerpt: "台灣鳳梨以其獨特的金鑽風味聞名全球。本文將帶您了解不同鳳梨品種的特色、最佳食用方式，以及鳳梨對健康的益處。"
-emoji: 🍍
-image: /images/blog/pineapple-secret.jpg
 locale: zh
+title: 台灣鳳梨：甜度與香氣的秘密
+date: 2026-03-20
+excerpt: 台灣鳳梨以其獨特的金鑽風味聞名全球。本文將帶您了解不同鳳梨品種的特色、最佳食用方式，以及鳳梨對健康的益處。
+emoji: 🍍
+image: /images/關廟鳳梨銷售004.jpg
 ---
 
 ## 金鑽鳳梨的秘密
