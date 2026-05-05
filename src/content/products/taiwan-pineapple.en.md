@@ -1,4 +1,5 @@
 ---
+locale: zh
 title: Taiwan Pineapple
 title_ja: 台湾パイナップル
 title_en: Taiwan Pineapple
@@ -18,8 +19,7 @@ features_en:
   - Sweet & Juicy
   - Fine Texture
   - Direct from Farm
-image: /images/products/taiwan-pineapple.jpg
-locale: en
+image: /images/關廟鳳梨銷售004.jpg
 ---
 
 ## Taiwan Pineapple: The Sweet Taste of Sunshine
