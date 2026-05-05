@@ -7,8 +7,10 @@ locale: 'zh_TW'
 
 backend:
   name: github
-  repo: une-liaison/une-liaison
+  repo: ming-7065/une-liaison
   branch: main
+
+site_url: https://une-liaison.netlify.app
 
 media_folder: public/images
 public_folder: /images
