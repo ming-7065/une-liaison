@@ -17,7 +17,7 @@ const news = allNews
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
 function getSlug(id: string): string {
-  return id.replace(/\.(zh|ja|en)\.md$/, '');
+  return id.replace(/(zh|ja|en)$/, '');
 }
 ---
 

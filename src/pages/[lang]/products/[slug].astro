@@ -21,7 +21,7 @@ const t = getTranslations(lang);
 const lp = `/${lang}`;
 
 const allProducts = await getCollection('products');
-const entry = allProducts.find(e => e.id === `${slug}.${lang}.md` && e.data.locale === lang);
+const entry = allProducts.find(e => e.id === `${slug}${lang}` && e.data.locale === lang);
 
 const { Content } = entry ? await render(entry) : { Content: null };
 
