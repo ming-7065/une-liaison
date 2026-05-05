@@ -1,10 +1,10 @@
 ---
+locale: zh
 title: "Summer's Treasure: The Ultimate Temptation of Taiwan Irwin Mango"
 date: 2026-03-10
-excerpt: "Irwin mango is the representative fruit of Taiwan's summer. Its tender flesh, rich fragrance, and sweet taste are unforgettable. Explore the growing story and selection tips of Irwin mango."
-emoji: "🥭"
-image: /images/blog/mango-irwin.jpg
-locale: en
+excerpt: Irwin mango is the representative fruit of Taiwan's summer. Its tender flesh, rich fragrance, and sweet taste are unforgettable. Explore the growing story and selection tips of Irwin mango.
+emoji: 🥭
+image: /images/products/taiwan-mango.webp
 ---
 
 ## Irwin Mango: The Nectar of Summer

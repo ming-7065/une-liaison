@@ -1,10 +1,10 @@
 ---
-title: "夏の宝物：台湾アーウィンマンゴーの究極の誘惑"
+locale: zh
+title: 夏の宝物：台湾アーウィンマンゴーの究極の誘惑
 date: 2026-03-10
-excerpt: "アウィン芒果は台湾の夏の代表的水果です。その繊細な果肉、豊かな香り、甘い味は忘れられません。"
+excerpt: アウィン芒果は台湾の夏の代表的水果です。その繊細な果肉、豊かな香り、甘い味は忘れられません。
 emoji: 🥭
-image: /images/blog/mango-irwin.jpg
-locale: ja
+image: /images/products/taiwan-mango.webp
 ---
 
 ## 愛文芒果：夏の瓊獎玉液

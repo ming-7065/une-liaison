@@ -1,10 +1,10 @@
 ---
-title: "夏季的寶藏：台灣愛文芒果的極致誘惑"
-date: 2026-03-10
-excerpt: "愛文芒果是台灣夏季的代表性水果，其細膩的果肉、濃郁的香氣和甜美的滋味令人難以忘懷。探索愛文芒果的種植故事和挑選技巧。"
-emoji: 🥭
-image: /images/blog/mango-irwin.jpg
 locale: zh
+title: 夏季的寶藏：台灣愛文芒果的極致誘惑
+date: 2026-03-10
+excerpt: 愛文芒果是台灣夏季的代表性水果，其細膩的果肉、濃郁的香氣和甜美的滋味令人難以忘懷。探索愛文芒果的種植故事和挑選技巧。
+emoji: 🥭
+image: /images/products/taiwan-mango.webp
 ---
 
 ## 愛文芒果：夏日的瓊漿玉液
