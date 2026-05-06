@@ -3,7 +3,7 @@ locale: ja
 title: ドラゴンフルーツ：夜に花開く熱帯の奇果
 date: 2026-02-10
 excerpt: ドラゴンフルーツはその独特な形だけでなく、豊富なりんこちん酸も含むため、健康的な食事としても人気の高い選択肢となっています。
-emoji: 🐉
+emoji: ''
 image: /images/products/dragon-fruit.webp
 ---
 
