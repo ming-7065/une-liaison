@@ -1,5 +1,0 @@
-name = "une-liaison"
-compatibility_date = "2026-05-05"
-
-[site]
-bucket = "./dist"
