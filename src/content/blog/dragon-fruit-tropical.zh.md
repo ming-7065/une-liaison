@@ -3,8 +3,8 @@ locale: zh
 title: 火龍果：夜間花開的熱帶奇果
 date: 2026-02-10
 excerpt: 火龍果不僅外形獨特，其豐富的營養成分也使其成為健康飲食的熱門選擇。了解火龍果的種植奧秘和多樣化食用方法。
-emoji: ''
 image: /images/products/dragon-fruit.webp
+emoji: ''
 ---
 
 ## 夜幕守護下的奇異果實
