@@ -8,7 +8,7 @@ backend:
   repo: ming-7065/une-liaison
   branch: main
 
-site_url: https://une-liaison.netlify.app
+site_url: https://une-liaison.pages.dev
 
 media_folder: public/images
 public_folder: /images
@@ -68,20 +68,3 @@ collections:
       - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
       - { name: body, label: 內文, widget: markdown, i18n: true }
 
-  - name: blog
-    label: 部落格
-    label_singular: 文章
-    folder: src/content/blog
-    create: true
-    i18n: true
-    slug: '{{slug}}'
-    extension: 'md'
-    format: 'frontmatter'
-    fields:
-      - { name: locale, widget: hidden, default: '{{locale}}', i18n: duplicate }
-      - { name: title, label: 標題, widget: string, i18n: true }
-      - { name: date, label: 日期, widget: datetime, i18n: duplicate }
-      - { name: excerpt, label: 摘要, widget: text, i18n: true }
-      - { name: emoji, label: Emoji, widget: string, i18n: duplicate, required: false }
-      - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
-      - { name: body, label: 內文, widget: markdown, i18n: true }
