@@ -5,7 +5,7 @@ const products = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/products' }),
   schema: z.object({
     title: z.string(),
-    emoji: z.string(),
+    emoji: z.string().optional(),
     description: z.string(),
     features: z.array(z.string()),
     image: z.string().optional(),

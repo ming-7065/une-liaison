@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import VideoBackground from '../../components/VideoBackground.astro';
+import { supportedLangs, getTranslations, type Lang } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return supportedLangs.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Lang;
+const t = getTranslations(lang);
+const lp = `/${lang}`;
+---
+
+<Layout title={`Une Liaison | YouTube Video Test`} lang={lang}>
+  <!-- Hero with YouTube background -->
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <VideoBackground videoId="aeX2qmrxZ88" />
+    
+    <!-- Overlay mask -->
+    <div class="absolute inset-0 bg-black/40 z-[1]"></div>
+    
+    <!-- Content -->
+    <div class="relative z-[2] text-center text-white px-4">
+      <h1 class="text-5xl md:text-7xl font-black mb-6 drop-shadow-lg">
+        YouTube Background Video
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 opacity-90 drop-shadow">
+        {lang === 'zh' ? '測試 YouTube 背景影片功能' : lang === 'ja' ? 'YouTube背景動画テスト' : 'YouTube Background Video Test'}
+      </p>
+      <div class="flex gap-4 justify-center flex-wrap">
+        <a href={`${lp}/`} class="px-8 py-4 bg-[var(--color-primary)] text-white rounded-full font-semibold hover:opacity-90 transition-all hover:scale-105 shadow-lg">
+          {t.nav.home}
+        </a>
+        <a href={`${lp}/products`} class="px-8 py-4 bg-white/20 backdrop-blur-sm text-white rounded-full font-semibold hover:bg-white/30 transition-all hover:scale-105 shadow-lg">
+          {t.nav.products}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Info section -->
+  <section class="py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">
+        {lang === 'zh' ? '功能說明' : lang === 'ja' ? '機能説明' : 'How it works'}
+      </h2>
+      <div class="prose prose-lg text-gray-700">
+        <ul class="space-y-3">
+          <li>✅ <strong>Auto-play & mute</strong> — {lang === 'zh' ? '自動播放、靜音（瀏覽器強制要求）' : 'Autoplay with mute (browser requirement)'}</li>
+          <li>✅ <strong>Loop</strong> — {lang === 'zh' ? '循環播放' : 'Infinite loop'}</li>
+          <li>✅ <strong>Mobile</strong> — {lang === 'zh' ? '手機內嵌播放，不跳出全螢幕' : 'Inline playback on mobile'}</li>
+          <li>✅ <strong>No controls</strong> — {lang === 'zh' ? '隱藏 YouTube 控制列、標題、相關影片' : 'Hidden controls, title, related videos'}</li>
+          <li>✅ <strong>Lazy load</strong> — {lang === 'zh' ? '延遲載入，不影響首次繪製' : 'Lazy loading for performance'}</li>
+          <li>✅ <strong>Overlay</strong> — {lang === 'zh' ? '半透明遮罩確保文字可讀' : 'Semi-transparent overlay for text readability'}</li>
+        </ul>
+      </div>
+      
+      <div class="mt-12 p-6 bg-yellow-50 rounded-2xl border border-yellow-200">
+        <h3 class="text-xl font-bold text-yellow-800 mb-3">⚠️ {lang === 'zh' ? '注意事項' : 'Notes'}</h3>
+        <ul class="text-yellow-700 space-y-2">
+          <li>• {lang === 'zh' ? '此頁面僅供測試，不會出現在導航選單' : 'This page is for testing only, not in navigation'}</li>
+          <li>• {lang === 'zh' ? 'YouTube iframe 會載入播放器資源（約 1MB）' : 'YouTube iframe loads player resources (~1MB)'}</li>
+          <li>• {lang === 'zh' ? '部分行動瀏覽器可能需要使用者互動才會播放' : 'Some mobile browsers may require user interaction'}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</Layout>

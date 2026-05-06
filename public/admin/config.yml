@@ -26,10 +26,9 @@ collections:
     fields:
       - { name: locale, widget: hidden, default: '{{locale}}', i18n: true }
       - { name: title, label: 標題, widget: string, i18n: true }
-      - { name: emoji, label: Emoji, widget: string, i18n: duplicate }
       - { name: description, label: 簡介, widget: text, i18n: true }
       - { name: features, label: 特色, widget: list, i18n: true }
-      - { name: image, widget: hidden, i18n: duplicate, required: false }
+      - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
       - { name: body, label: 詳細介紹, widget: markdown, i18n: true }
 
   - name: news
@@ -46,7 +45,6 @@ collections:
       - { name: title, label: 標題, widget: string, i18n: true }
       - { name: date, label: 日期, widget: datetime, i18n: duplicate }
       - { name: excerpt, label: 摘要, widget: text, i18n: true }
-      - { name: emoji, label: Emoji, widget: string, i18n: duplicate, required: false }
       - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
       - { name: body, label: 內文, widget: markdown, i18n: true }
 
@@ -64,7 +62,6 @@ collections:
       - { name: title, label: 標題, widget: string, i18n: true }
       - { name: date, label: 日期, widget: datetime, i18n: duplicate }
       - { name: excerpt, label: 摘要, widget: text, i18n: true }
-      - { name: emoji, label: Emoji, widget: string, i18n: duplicate, required: false }
-      - { name: image, widget: hidden, i18n: duplicate, required: false }
+      - { name: image, label: 封面圖片, widget: image, i18n: duplicate, required: false }
       - { name: body, label: 內文, widget: markdown, i18n: true }
 
