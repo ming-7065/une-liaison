@@ -1,5 +1,5 @@
 ---
-locale: zh
+locale: en
 title: 'Join Our Team: Global Trade Specialist Wanted!'
 date: 2026-02-20
 excerpt: We are looking for passionate talents in international trade to join our team. If you have relevant experience and enjoy challenges, we welcome you to check out our openings.

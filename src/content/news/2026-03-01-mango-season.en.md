@@ -1,5 +1,5 @@
 ---
-locale: zh
+locale: en
 title: Summer Mango Season is Coming!
 date: 2026-03-01
 excerpt: Are you ready for sweet and juicy Taiwan mangoes? As temperatures rise, we expect a bountiful mango season this summer.

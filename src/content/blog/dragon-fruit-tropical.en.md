@@ -1,5 +1,5 @@
 ---
-locale: zh
+locale: en
 title: 'Dragon Fruit: The Tropical Wonder that Blooms at Night'
 date: 2026-02-10
 excerpt: Dragon fruit is not only unique in appearance, but its rich nutritional content also makes it a popular choice for healthy diets. Learn the growing secrets and diverse ways to enjoy dragon fruit.

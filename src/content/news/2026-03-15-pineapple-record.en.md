@@ -1,5 +1,5 @@
 ---
-locale: zh
+locale: en
 title: Taiwan Pineapple Exports Hit New Record!
 date: 2026-03-15
 excerpt: We are thrilled to announce that Taiwan pineapple exports have broken records again this year. Thanks to global consumers' love for Taiwan's high-quality fruits.

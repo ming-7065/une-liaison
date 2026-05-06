@@ -1,5 +1,5 @@
 ---
-locale: zh
+locale: en
 title: 'Taiwan Pineapple: The Secret of Sweetness and Aroma'
 date: 2026-03-20
 excerpt: Taiwan pineapple is renowned worldwide for its unique Jinzuan flavor. This article takes you through the characteristics of different pineapple varieties, the best ways to enjoy them, and the health benefits of pineapple.
