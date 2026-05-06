@@ -675,6 +675,80 @@ Sveltia CMS 判定 config 類型的機制：
 
 ---
 
+## Phase 15：前台 emoji 移除、CMS 圖片上傳修復與影片區塊優化
+
+### 任務
+
+移除前台所有 emoji 顯示，修復 CMS 圖片上傳功能（之前誤設為 `widget: hidden`），並優化首頁影片區塊為滿版暗角設計。
+
+### 協作過程
+
+**Human:** 「後台是要完全拿掉 emoji，保留用照片取代，但你現在是把照片上傳砍掉，保留了 emoji。」
+
+**AI:** 檢查 `config.yml` 發現方向反了：image 設為 `widget: hidden`（隱藏上傳），emoji 欄位卻還在。正確做法：移除 emoji 欄位，image 改回 `widget: image`。
+
+**Human:** 「前台圖示全部都還在。」
+
+**AI:** 只改了 CMS 後台，忘了前台 6 個 `.astro` 頁面仍在顯示 emoji。逐一檢查並移除：`index.astro`、`products.astro`、`products/[slug].astro`、`blog/[slug].astro`、`news/[slug].astro`、`blog.astro`。部落格列表頁改用封面圖片取代 emoji。
+
+**Human:** 「影片再大一點、寬度滿版、換個視覺效果，手機也要設計。」
+
+**AI:**
+- 影片容器改 `w-full`（滿版），桌面保留 `md:px-4`，手機 `px-0`（邊到邊）
+- 圓角改 `md:rounded-3xl`（桌面圓角，手機無）
+- 手機比例 `aspect-square`，桌面 `md:aspect-video`
+- 紋理從點陣改為暗角 `radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%)`
+
+**Human:** 「前後台同步確認是正常的嗎，你測一下，另外在三個後台主題都發一個測試文。」
+
+**AI:** 新增 9 篇測試文章（products / blog / news × 3 語言），線上驗證標題、內文、圖片、三語各自獨立均正常。
+
+### 最終做法
+
+1. **CMS `config.yml`**：
+   - products / blog / news 移除 `emoji` 欄位
+   - products / blog 的 `image` 改回 `widget: image`（不是 `hidden`）
+   - news 的 `image` 也改回 `widget: image`
+
+2. **前台 6 個 `.astro` 移除 emoji**：
+   - `index.astro`：產品卡片移除 emoji div
+   - `products.astro`：產品卡片移除 emoji div
+   - `products/[slug].astro`：標題移除 `{entry?.data.emoji}`
+   - `blog/[slug].astro`：移除 emoji 條件區塊
+   - `news/[slug].astro`：移除 emoji 條件區塊
+   - `blog.astro`：列表卡片 emoji → 封面圖片 `<img>`
+
+3. **影片區塊優化**：
+   - `index.astro` 影片 section 改滿版、暗角 overlay
+   - 手機方形比例，桌面 16:9
+
+4. **新增 9 篇測試文章**（products / blog / news × 3 語言）驗證前後台同步
+
+### 關鍵教訓
+
+| 教訓 | 說明 |
+|---|---|
+| CMS 改動必須同步前台 | 只改 `config.yml` 移除欄位，前台 `.astro` 仍引用該欄位 → 線上看不到變化 |
+| 確認「移除/保留」方向 | 用戶說「拿掉 emoji、保留照片」≠「照片設 hidden、emoji 留著」。先列出要移除和要保留的欄位清單 |
+
+### 關鍵檔案
+
+| 檔案 | 變更 |
+|---|---|
+| `public/admin/config.yml` | 移除 emoji（products/blog/news），image 改回 `widget: image` |
+| `src/content.config.ts` | `emoji: z.string()` → `z.string().optional()` |
+| `src/pages/[lang]/index.astro` | 移除 emoji，影片區塊滿版 + 暗角 |
+| `src/pages/[lang]/products.astro` | 移除 emoji |
+| `src/pages/[lang]/products/[slug].astro` | 標題移除 emoji |
+| `src/pages/[lang]/blog/[slug].astro` | 移除 emoji 區塊 |
+| `src/pages/[lang]/news/[slug].astro` | 移除 emoji 區塊 |
+| `src/pages/[lang]/blog.astro` | emoji → 封面圖片 |
+| `src/content/products/test-sync.{zh,ja,en}.md` | ✅ 新建 3 篇測試產品 |
+| `src/content/blog/test-sync.{zh,ja,en}.md` | ✅ 新建 3 篇測試部落格 |
+| `src/content/news/2026-05-06-test-sync.{zh,ja,en}.md` | ✅ 新建 3 篇測試新聞 |
+
+---
+
 ## 成功模式總結
 
 ### 人機協作流程
@@ -725,8 +799,8 @@ AI 修正
 
 ### 最終成果
 
-- **68 頁**靜態網站（3 languages × ~23 pages）
-- **33 個 Markdown 檔案**（可透過 Sveltia CMS 編輯）
+- **80 頁**靜態網站（3 languages × ~27 pages）
+- **42 個 Markdown 檔案**（可透過 Sveltia CMS 編輯）
 - **Sveltia CMS** 三語編輯介面（locale 不會再被覆蓋）
 - **Content Collections** 架構（未來可擴充欄位、加入更多 collection）
 - **WebP 圖片**（4 張產品圖，比 JPG 省 53% 空間）
@@ -742,7 +816,7 @@ git commit → git push
     ↓
 GitHub Actions 偵測 push
     ↓
-npm run build → 68 pages
+npm run build → 80 pages
     ↓
 wrangler pages deploy dist/
     ↓

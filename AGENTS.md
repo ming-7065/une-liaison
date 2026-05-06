@@ -10,7 +10,7 @@
 |------|------|
 | 專案名 | une-liaison |
 | 類型 | 三語企業形象 + 產品展示 + 新聞 + 部落格 |
-| 站點 | https://une-liaison.netlify.app |
+| 站點 | https://une-liaison.pages.dev |
 | 語言 | 中文 / 日文 / 英文 |
 | CMS | Sveltia CMS（GitHub backend） |
 
@@ -22,7 +22,7 @@
 - **Tailwind CSS v4** — 樣式
 - **Markdown Content Collections** — 三語 i18n（glob loader）
 - **Sveltia CMS** — 客戶後台（CDN 載入，GitHub backend）
-- **Netlify** — 自動部署（Git push → build → CDN）
+- **Cloudflare Pages** — 自動部署（GitHub Actions + wrangler CLI）
 
 ---
 
@@ -30,7 +30,7 @@
 
 ```sh
 npm run dev      # http://localhost:4321
-npm run build    # 輸出到 dist/（65 頁）
+npm run build    # 輸出到 dist/（80 頁）
 ```
 
 ---
@@ -43,6 +43,8 @@ npm run build    # 輸出到 dist/（65 頁）
 | `backend: github`（不是 test-repo） | test-repo 只存 localStorage，不寫入 repo |
 | `public/admin/index.html`（不是 `.astro`） | Astro 會處理 `.astro` 的 `<script>`，破壞 CDN module 載入 |
 | Collection 必須加 `extension: 'md'` + `format: 'frontmatter'` | Sveltia CMS 正確辨識檔案格式 |
+| CMS 改動必須同步前台頁面 | 只改 `config.yml` 移除欄位，前台 `.astro` 仍引用該欄位 → 線上看不到變化 |
+| 確認「移除/保留」清單後再動手 | 避免方向搞反（如：照片設 hidden、emoji 留著） |
 
 ---
 
@@ -85,9 +87,11 @@ chmod +x audit.sh && ./audit.sh
     ↓
 git commit → git push
     ↓
-Netlify 偵測 push
+GitHub Actions 偵測 push
     ↓
-npm run build → 65 pages
+npm run build → 80 pages
     ↓
-CDN 部署完成 ✅
+wrangler pages deploy dist/
+    ↓
+Cloudflare CDN 部署完成 ✅
 ```
