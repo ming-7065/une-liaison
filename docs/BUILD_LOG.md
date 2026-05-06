@@ -535,6 +535,146 @@ Sveltia CMS 判定 config 類型的機制：
 
 ---
 
+## Phase 11：圖片 WebP 轉換與前端顯示優化
+
+### 任務
+
+將所有產品圖片轉為 WebP 節省空間，並在首頁和產品列表顯示真實圖片。
+
+### 協作過程
+
+**Human:** 「後台看的四張圖都是 jpg，沒有轉 webp，而且上傳也不會自動轉。」
+
+**AI:** 用 `cwebp` 轉換 4 張產品圖，JPG 總計 1.2MB 降至 WebP 561KB（-53%）。同時修改 `admin/index.html` 的上傳壓縮腳本，所有圖片一律輸出 `image/webp`。
+
+**Human:** 「首頁和產品列表沒有圖片，只有 emoji。」
+
+**AI:** 在 `index.astro` 和 `products.astro` 加入 `<img>` 顯示 `entry.data.image`，用 `aspect-[4/3] object-cover` 統一比例。產品詳情頁也改用 `aspect-[4/3]` 避免裁切。
+
+### 關鍵檔案
+
+| 檔案 | 變更 |
+|---|---|
+| `public/images/products/*.webp` | ✅ 新建 4 張 WebP |
+| `public/images/products/*.jpg` | ✅ 刪除 |
+| `src/pages/[lang]/index.astro` | ✅ 加入產品圖片顯示 |
+| `src/pages/[lang]/products.astro` | ✅ 加入產品圖片顯示 |
+| `src/pages/[lang]/products/[slug].astro` | ✅ `aspect-[4/3]` 取代固定高度 |
+| `public/admin/index.html` | ✅ `compressImage` → `convertToWebP` |
+
+---
+
+## Phase 12：CMS i18n 根本性修復
+
+### 任務
+
+解決 CMS 後台「單一頁面出現三國語言」和「locale 被覆蓋」的問題。
+
+### 協作過程
+
+**Human:** 「後台修改資料後，中文頁面出現三國語言同時顯示。」
+
+**AI:** 調查後發現 `config.yml` 在 `multiple_files` 模式下同時使用了 `i18n: true` 和 `_ja`/`_en` 後綴欄位，兩者重疊導致每個語系檔案都包含三種語言的欄位。正確做法：只用 `i18n: true`，由 CMS 自動在各語言分頁顯示對應欄位。
+
+**Human:** 「.ja.md 和 .en.md 的 locale 都被覆蓋成 zh。」
+
+**AI:** 根因是 `locale` 欄位設為 `i18n: duplicate`，導致預設語系 `zh` 被複製到所有檔案。改為 `i18n: true` 後，每個語言檔案獨立儲存自己的 locale 值。
+
+### 最終做法
+
+移除所有冗餘欄位：
+- `title_ja`、`title_en`
+- `description_ja`、`description_en`
+- `features_ja`、`features_en`
+- `excerpt_ja`、`excerpt_en`
+
+前端 `products.astro` 和 `[slug].astro` 改用 `entry.data.title`（不再用 `entry.data[\`title_${lang}\`]`）。
+
+### 關鍵檔案
+
+| 檔案 | 變更 |
+|---|---|
+| `public/admin/config.yml` | ✅ 移除 `_ja`/`_en` 欄位，刪除 `locale: 'zh_TW'` |
+| `src/content.config.ts` | ✅ 移除 `_ja`/`_en` schema |
+| `src/content/**/*.{zh,ja,en}.md` | ✅ 清理冗餘欄位（33 檔） |
+| `src/pages/[lang]/products.astro` | ✅ 簡化為 `entry.data.title` |
+| `src/pages/[lang]/products/[slug].astro` | ✅ 簡化為 `entry.data.title` |
+
+---
+
+## Phase 13：Netlify → Cloudflare Pages 遷移
+
+### 任務
+
+解決 Netlify 免費版限流問題，將網站遷移到 Cloudflare Pages。
+
+### 協作過程
+
+**Human:** 「Netlify 出現 usage_exceeded，要限流一個月。」
+
+**AI:** Netlify 免費版限制：300 分鐘 build time/月。頻繁 git push 觸發多次建構，容易用完。Cloudflare Pages 免費版：無限 build、無限帶寬。
+
+**Human:** 「用 wrangler CLI 部署。」
+
+**AI:** 用 `npx wrangler pages project create` 建立專案，再用 `npx wrangler pages deploy dist/` 上傳。但 Cloudflare 新版 Dashboard 把 Workers 和 Pages 合併，選 Astro framework 會自動加入 `npx wrangler deploy` 作為 Deploy command，導致靜態站部署失敗。
+
+**Human:** 「Deploy command 不能清空，會出現 Required。」
+
+**AI:** 最終解法：完全繞過 Dashboard，用 wrangler CLI 的 Direct Upload 方式建立專案並部署。然後建立 GitHub Actions workflow 做自動部署。
+
+### 最終做法
+
+1. **刪除 `wrangler.toml`**（專案根目錄若有，會讓 Cloudflare 誤判為 Workers）
+2. **wrangler CLI 建立專案**：
+   ```sh
+   npx wrangler pages project create une-liaison --production-branch main
+   ```
+3. **部署**：
+   ```sh
+   npx wrangler pages deploy dist/ --project-name=une-liaison
+   ```
+4. **GitHub Actions 自動部署**：
+   `.github/workflows/deploy.yml` — 每次 push 自動 build + deploy
+5. **GitHub Secrets**：
+   - `CLOUDFLARE_API_TOKEN`
+   - `CLOUDFLARE_ACCOUNT_ID`
+
+### 關鍵檔案
+
+| 檔案 | 變更 |
+|---|---|
+| `wrangler.toml` | ✅ 刪除 |
+| `.github/workflows/deploy.yml` | ✅ 新建 |
+| `public/admin/config.yml` | ✅ `site_url` 改為 pages.dev |
+
+---
+
+## Phase 14：鳳梨圖片修正與 config 清理
+
+### 任務
+
+修正 CMS 上傳的中文檔名圖片路徑，清理 config.yml 重複欄位。
+
+### 協作過程
+
+**Human:** 「鳳梨圖片路徑是 `/images/關廟鳳梨銷售004.jpg`，中文檔名。」
+
+**AI:** 將該圖片轉為 WebP，重新命名為 `taiwan-pineapple.webp`，更新 9 個 markdown 的 `image:` 路徑。
+
+**Human:** 「config.yml 有重複的 blog collection。」
+
+**AI:** 發現第二個 blog collection 有錯誤的 `i18n: duplicate` 設定，刪除重複區塊。
+
+### 關鍵檔案
+
+| 檔案 | 變更 |
+|---|---|
+| `public/images/products/taiwan-pineapple.webp` | ✅ 新建 |
+| `public/images/關廟鳳梨銷售004.jpg` | ✅ 刪除 |
+| `public/admin/config.yml` | ✅ 刪除重複 blog collection，更新 site_url |
+
+---
+
 ## 成功模式總結
 
 ### 人機協作流程
@@ -564,6 +704,8 @@ AI 修正
 | `multiple_files` i18n 模式 | 三語編輯在同一介面，檔案分開好維護 |
 | `public/admin/index.html` 而非 `.astro` | 繞過 build tool，CMS script 正確載入 |
 | `git init` 讓 File System Access API 工作 | 不需要 proxy，本機直接寫檔案 |
+| WebP 圖片格式 | 比 JPG 省 40-70% 空間，GitHub 1GB 限制下更耐用 |
+| Cloudflare Pages 取代 Netlify | 無限 build、無限帶寬，不會限流 |
 
 ### 技術規範
 
@@ -572,17 +714,23 @@ AI 修正
 | CMS backend | `backend: github`（寫入 repo，自動觸發 rebuild） |
 | CMS 入口 | `public/admin/index.html`（靜態檔案，繞過 Astro build tool） |
 | CMS config link | `<link rel="cms-config-url" href="/admin/config.yml" type="text/yaml">`，**`type` 不可省略** |
+| CMS i18n | 只用 `i18n: true`，**不可**同時使用 `_ja`/`_en` 後綴欄位 |
+| CMS locale 欄位 | `i18n: true`（不是 `duplicate`），讓每個語系檔案獨立儲存 locale |
 | Astro v6 render | `import { render } from 'astro:content'; await render(entry)` |
 | Content Collection config | `src/content.config.ts`（Astro v6 根目錄位置） |
 | CMS script 載入 | `type="module"` + CDN URL，在 static HTML 中保留原樣 |
+| 圖片格式 | 所有上傳圖片轉 WebP（`cwebp -q 80` 或 Canvas `toBlob('image/webp')`） |
+| Cloudflare Pages 部署 | Framework preset 選 **None**，或用 wrangler CLI Direct Upload |
+| Cloudflare Pages 自動部署 | GitHub Actions + `cloudflare/wrangler-action@v3` |
 
 ### 最終成果
 
-- **65 頁**靜態網站（3 languages × ~22 pages）
+- **68 頁**靜態網站（3 languages × ~23 pages）
 - **33 個 Markdown 檔案**（可透過 Sveltia CMS 編輯）
-- **Sveltia CMS** 三語編輯介面
+- **Sveltia CMS** 三語編輯介面（locale 不會再被覆蓋）
 - **Content Collections** 架構（未來可擴充欄位、加入更多 collection）
-- **部署就緒**：push 到 GitHub → Netlify 自動 build → CDN 部署
+- **WebP 圖片**（4 張產品圖，比 JPG 省 53% 空間）
+- **部署就緒**：push 到 GitHub → GitHub Actions → Cloudflare Pages 自動部署
 - **技能庫歸檔**：BUILD_LOG_SOP.md + une-liaison/PROJECT_NOTES.md
 
 ### 部署路徑
@@ -592,9 +740,11 @@ AI 修正
     ↓
 git commit → git push
     ↓
-Netlify 偵測 push
+GitHub Actions 偵測 push
     ↓
-npm run build → 65 pages
+npm run build → 68 pages
     ↓
-CDN 部署完成 ✅
+wrangler pages deploy dist/
+    ↓
+Cloudflare CDN 部署完成 ✅
 ```
